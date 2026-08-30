@@ -1,27 +1,27 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "minecraft:chainmail_leggings",
+      "identifier": "siedler:soldier_chainmail_leggings",
+      "item": {
+        "minecraft:chainmail_leggings": "query.is_item_name_any('slot.inventory', 4, 'minecraft:chainmail_leggings')"
+      },
       "materials": {
-        "default": "armor",
+        "armor": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
-        "default": "textures/models/armor/chainmail_2",
+        "chainmail_2": "textures/models/armor/chain_2",
         "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
-        "default": "geometry.humanoid.armor.leggings"
+        "leggings": "geometry.soldier.equipment.leggings"
       },
       "scripts": {
-        "parent_setup": "v.leg_layer_visible = false;",
-        "pre_animation": [
-          "v.is_soldier_slot = query.is_item_name_any('slot.inventory', 4, 'minecraft:chainmail_leggings');"
-        ]
+        "parent_setup": "variable.leg_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.soldier.armor"
+        "controller.render.soldier.leggings"
       ]
     }
   }
