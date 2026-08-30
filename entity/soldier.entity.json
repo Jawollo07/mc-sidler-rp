@@ -3,22 +3,19 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "siedler:soldier",
-
       "materials": {
         "default": "entity_alphatest"
       },
-
       "textures": {
         "default": "textures/entity/soldier"
       },
-
       "geometry": {
-        "default": "geometry.soldier"
+        "default": "geometry.humanoid.custom"
       },
-
       "render_controllers": [
         "controller.render.soldier"
-      ]
+      ],
+      "enable_attachables": true
     }
   }
 }
