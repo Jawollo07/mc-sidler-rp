@@ -1,27 +1,27 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "minecraft:chainmail_chestplate",
+      "identifier": "siedler:soldier_chainmail_chestplate",
+      "item": {
+        "minecraft:chainmail_chestplate": "query.is_item_name_any('slot.inventory', 3, 'minecraft:chainmail_chestplate')"
+      },
       "materials": {
-        "default": "armor",
+        "armor": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
-        "default": "textures/models/armor/chainmail_1",
+        "chainmail_1": "textures/models/armor/chain_1",
         "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
-        "default": "geometry.humanoid.armor.chestplate"
+        "chestplate": "geometry.soldier.equipment.chestplate"
       },
       "scripts": {
-        "parent_setup": "v.chest_layer_visible = false;",
-        "pre_animation": [
-          "v.is_soldier_slot = query.is_item_name_any('slot.inventory', 3, 'minecraft:chainmail_chestplate');"
-        ]
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.soldier.armor"
+        "controller.render.soldier.chestplate"
       ]
     }
   }
