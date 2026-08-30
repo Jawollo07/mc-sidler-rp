@@ -1,23 +1,21 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "minecraft:shield",
+      "identifier": "siedler:soldier_shield",
+      "item": {
+        "minecraft:shield": "query.is_item_name_any('slot.inventory', 1, 'minecraft:shield')"
+      },
       "materials": {
-        "default": "entity_alphatest",
+        "item": "entity_alphatest",
         "enchanted": "entity_alphatest_glint"
       },
       "textures": {
-        "default": "textures/items/shield",
+        "shield": "textures/entity/shield",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "default": "geometry.soldier.shield"
-      },
-      "scripts": {
-        "pre_animation": [
-          "v.is_soldier_slot = query.is_item_name_any('slot.inventory', 1, 'minecraft:shield');"
-        ]
+        "shield": "geometry.soldier.equipment.shield"
       },
       "render_controllers": [
         "controller.render.soldier.shield"
