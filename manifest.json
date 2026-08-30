@@ -1,18 +1,18 @@
 {
- "format_version": 2,
- "header": {
-   "description": "Siedler Logic – Teams, Claims, Steuern, Monster und Essentials",
-   "name": "Siedler Logic Resource Pack",
-   "uuid": "c14b6f19-1d9a-4b62-878f-43391930a4aa",
-   "version": [1, 0, 0],
-   "min_engine_version": [1, 16, 0]
+  "format_version": 2,
+  "header": {
+    "description": "Siedler Logic Resource Pack",
+    "name": "Siedler Logic Resource Pack",
+    "uuid": "c14b6f19-1d9a-4b62-878f-43391930a4aa",
+    "version": [1, 0, 1],
+    "min_engine_version": [1, 26, 0]
   },
- "modules": [
-   {
-     "description": "Siedler Logic – Teams, Claims, Steuern, Monster und Essentials",
-     "type": "resources",
-     "uuid": "ec6e82cb-8fc2-4933-ac11-613499a4ddfc",
-     "version": [1, 0, 0]
-   }
- ]
+  "modules": [
+    {
+      "description": "Siedler Logic Resource Pack",
+      "type": "resources",
+      "uuid": "ec6e82cb-8fc2-4933-ac11-613499a4ddfc",
+      "version": [1, 0, 1]
+    }
+  ]
 }
