@@ -3,24 +3,50 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "siedler:soldier",
-
       "materials": {
-        "default": "entity_alphatest"
+        "default": "entity_alphatest",
+        "armor": "armor",
+        "item": "entity_alphatest"
       },
-
       "textures": {
-        "default": "textures/entity/soldier"
+        "default": "textures/entity/soldier",
+        "sword": "textures/items/iron_sword",
+        "shield": "textures/entity/shield",
+        "chainmail_1": "textures/models/armor/chain_1",
+        "chainmail_2": "textures/models/armor/chain_2"
       },
-
       "geometry": {
-        "default": "geometry.soldier"
+        "default": "geometry.soldier",
+        "sword": "geometry.soldier.equipment.sword",
+        "shield": "geometry.soldier.equipment.shield",
+        "helmet": "geometry.soldier.equipment.helmet",
+        "chestplate": "geometry.soldier.equipment.chestplate",
+        "leggings": "geometry.soldier.equipment.leggings",
+        "boots": "geometry.soldier.equipment.boots"
       },
-
       "render_controllers": [
-        "controller.render.soldier"
+        "controller.render.soldier",
+        {
+          "controller.render.soldier.sword": "query.is_item_name_any('slot.inventory', 0, 'minecraft:iron_sword')"
+        },
+        {
+          "controller.render.soldier.shield": "query.is_item_name_any('slot.inventory', 1, 'minecraft:shield')"
+        },
+        {
+          "controller.render.soldier.helmet": "query.is_item_name_any('slot.inventory', 2, 'minecraft:chainmail_helmet')"
+        },
+        {
+          "controller.render.soldier.chestplate": "query.is_item_name_any('slot.inventory', 3, 'minecraft:chainmail_chestplate')"
+        },
+        {
+          "controller.render.soldier.leggings": "query.is_item_name_any('slot.inventory', 4, 'minecraft:chainmail_leggings')"
+        },
+        {
+          "controller.render.soldier.boots": "query.is_item_name_any('slot.inventory', 5, 'minecraft:chainmail_boots')"
+        }
       ],
-
-      "enable_attachables": true
+      "enable_attachables": true,
+      "held_item_ignores_lighting": false
     }
   }
 }
