@@ -1,23 +1,21 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "minecraft:iron_sword",
+      "identifier": "siedler:soldier_iron_sword",
+      "item": {
+        "minecraft:iron_sword": "query.is_item_name_any('slot.inventory', 0, 'minecraft:iron_sword')"
+      },
       "materials": {
-        "default": "entity_alphatest",
+        "item": "entity_alphatest",
         "enchanted": "entity_alphatest_glint"
       },
       "textures": {
-        "default": "textures/items/iron_sword",
+        "sword": "textures/items/iron_sword",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "default": "geometry.soldier.sword"
-      },
-      "scripts": {
-        "pre_animation": [
-          "v.is_soldier_slot = query.is_item_name_any('slot.inventory', 0, 'minecraft:iron_sword');"
-        ]
+        "sword": "geometry.soldier.equipment.sword"
       },
       "render_controllers": [
         "controller.render.soldier.sword"
