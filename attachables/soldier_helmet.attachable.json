@@ -1,27 +1,27 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "minecraft:chainmail_helmet",
+      "identifier": "siedler:soldier_chainmail_helmet",
+      "item": {
+        "minecraft:chainmail_helmet": "query.is_item_name_any('slot.inventory', 2, 'minecraft:chainmail_helmet')"
+      },
       "materials": {
-        "default": "armor",
+        "armor": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
-        "default": "textures/models/armor/chainmail_1",
+        "chainmail_1": "textures/models/armor/chain_1",
         "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
-        "default": "geometry.humanoid.armor.helmet"
+        "helmet": "geometry.soldier.equipment.helmet"
       },
       "scripts": {
-        "parent_setup": "v.helmet_layer_visible = false;",
-        "pre_animation": [
-          "v.is_soldier_slot = query.is_item_name_any('slot.inventory', 2, 'minecraft:chainmail_helmet');"
-        ]
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.soldier.armor"
+        "controller.render.soldier.helmet"
       ]
     }
   }
