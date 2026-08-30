@@ -1,0 +1,145 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 3,
+        "visible_bounds_offset": [0, 1.5, 0]
+      },
+
+      "bones": [
+        {
+          "name": "helmet",
+          "parent": "head",
+          "pivot": [0, 24, 0],
+          "cubes": [
+            {
+              "origin": [-4.5, 23.5, -4.5],
+              "size": [9, 9, 9],
+              "inflate": 0.5,
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            }
+          ]
+        },
+
+        {
+          "name": "chestplate",
+          "parent": "body",
+          "pivot": [0, 12, 0],
+          "cubes": [
+            {
+              "origin": [-4.5, 11.5, -2.5],
+              "size": [9, 12, 5],
+              "inflate": 0.5,
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            }
+          ]
+        },
+
+        {
+          "name": "leftArmorLeg",
+          "parent": "leftLeg",
+          "pivot": [1.9, 12, 0],
+          "cubes": [
+            {
+              "origin": [0.0, 0, -2.5],
+              "size": [4, 12, 5],
+              "inflate": 0.5,
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            }
+          ]
+        },
+
+        {
+          "name": "rightArmorLeg",
+          "parent": "rightLeg",
+          "pivot": [-1.9, 12, 0],
+          "cubes": [
+            {
+              "origin": [-4, 0, -2.5],
+              "size": [4, 12, 5],
+              "inflate": 0.5,
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            }
+          ]
+        },
+
+        {
+          "name": "rightItem",
+          "pivot": [-5, 22, 0]
+        },
+
+        {
+          "name": "sword",
+          "parent": "rightItem",
+          "pivot": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-1, -12, -0.5],
+              "size": [2, 12, 1],
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            },
+            {
+              "origin": [-3, -1, -0.5],
+              "size": [6, 2, 1],
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            },
+            {
+              "origin": [-1, 1, -0.5],
+              "size": [2, 4, 1],
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            }
+          ]
+        },
+
+        {
+          "name": "leftItem",
+          "pivot": [5, 22, 0]
+        },
+
+        {
+          "name": "shield",
+          "parent": "leftItem",
+          "pivot": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "cubes": [
+            {
+              "origin": [-4, -7, -1],
+              "size": [8, 14, 2],
+              "uv": {
+                "uv": [0, 0],
+                "uv_size": [64, 64]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

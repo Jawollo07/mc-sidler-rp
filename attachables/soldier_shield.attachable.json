@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:shield",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/items/shield",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.soldier.shield"
+      },
+      "scripts": {
+        "pre_animation": [
+          "v.is_soldier_slot = query.is_item_name_any('slot.inventory', 1, 'minecraft:shield');"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.soldier.shield"
+      ]
+    }
+  }
+}
