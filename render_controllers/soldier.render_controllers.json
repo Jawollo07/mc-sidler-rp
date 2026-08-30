@@ -11,6 +11,78 @@
       "textures": [
         "Texture.default"
       ]
+    },
+
+    "controller.render.soldier.sword": {
+      "geometry": "Geometry.sword",
+      "materials": [
+        {
+          "*": "Material.item"
+        }
+      ],
+      "textures": [
+        "Texture.sword"
+      ]
+    },
+
+    "controller.render.soldier.shield": {
+      "geometry": "Geometry.shield",
+      "materials": [
+        {
+          "*": "Material.item"
+        }
+      ],
+      "textures": [
+        "Texture.shield"
+      ]
+    },
+
+    "controller.render.soldier.helmet": {
+      "geometry": "Geometry.helmet",
+      "materials": [
+        {
+          "*": "Material.armor"
+        }
+      ],
+      "textures": [
+        "Texture.chainmail_1"
+      ]
+    },
+
+    "controller.render.soldier.chestplate": {
+      "geometry": "Geometry.chestplate",
+      "materials": [
+        {
+          "*": "Material.armor"
+        }
+      ],
+      "textures": [
+        "Texture.chainmail_1"
+      ]
+    },
+
+    "controller.render.soldier.leggings": {
+      "geometry": "Geometry.leggings",
+      "materials": [
+        {
+          "*": "Material.armor"
+        }
+      ],
+      "textures": [
+        "Texture.chainmail_2"
+      ]
+    },
+
+    "controller.render.soldier.boots": {
+      "geometry": "Geometry.boots",
+      "materials": [
+        {
+          "*": "Material.armor"
+        }
+      ],
+      "textures": [
+        "Texture.chainmail_1"
+      ]
     }
   }
 }
