@@ -4,7 +4,7 @@
     "description": {
       "identifier": "siedler:soldier_iron_sword",
       "item": {
-        "minecraft:iron_sword": "query.is_item_name_any('slot.inventory', 0, 'minecraft:iron_sword')"
+        "minecraft:iron_sword": "query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:iron_sword')"
       },
       "materials": {
         "item": "entity_alphatest",
