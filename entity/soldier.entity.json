@@ -24,7 +24,9 @@
       "render_controllers": [
         "controller.render.soldier"
       ],
-      "enable_attachables": true
+      "enable_attachables": true,
+      "held_item_ignores_lighting": true,
+      "hide_armor": false
     }
   }
 }
