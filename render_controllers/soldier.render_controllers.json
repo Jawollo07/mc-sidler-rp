@@ -4,78 +4,70 @@
     "controller.render.soldier": {
       "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.default"
-        }
+        { "*": "Material.default" }
       ],
       "textures": [
         "Texture.default"
       ]
     },
     "controller.render.soldier.sword": {
-      "geometry": "Geometry.sword",
+      "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.item"
-        }
+        { "*": "query.is_enchanted ? Material.enchanted : Material.default" }
       ],
       "textures": [
-        "Texture.sword"
+        "Texture.default",
+        "Texture.enchanted"
       ]
     },
     "controller.render.soldier.shield": {
-      "geometry": "Geometry.shield",
+      "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.item"
-        }
+        { "*": "query.is_enchanted ? Material.enchanted : Material.default" }
       ],
       "textures": [
-        "Texture.shield"
+        "Texture.default",
+        "Texture.enchanted"
       ]
     },
     "controller.render.soldier.helmet": {
-      "geometry": "Geometry.helmet",
+      "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.armor"
-        }
+        { "*": "query.is_enchanted ? Material.enchanted : Material.default" }
       ],
       "textures": [
-        "Texture.chainmail_1"
+        "Texture.default",
+        "Texture.enchanted"
       ]
     },
     "controller.render.soldier.chestplate": {
-      "geometry": "Geometry.chestplate",
+      "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.armor"
-        }
+        { "*": "query.is_enchanted ? Material.enchanted : Material.default" }
       ],
       "textures": [
-        "Texture.chainmail_1"
+        "Texture.default",
+        "Texture.enchanted"
       ]
     },
     "controller.render.soldier.leggings": {
-      "geometry": "Geometry.leggings",
+      "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.armor"
-        }
+        { "*": "query.is_enchanted ? Material.enchanted : Material.default" }
       ],
       "textures": [
-        "Texture.chainmail_2"
+        "Texture.default",
+        "Texture.enchanted"
       ]
     },
     "controller.render.soldier.boots": {
-      "geometry": "Geometry.boots",
+      "geometry": "Geometry.default",
       "materials": [
-        {
-          "*": "Material.armor"
-        }
+        { "*": "query.is_enchanted ? Material.enchanted : Material.default" }
       ],
       "textures": [
-        "Texture.chainmail_1"
+        "Texture.default",
+        "Texture.enchanted"
       ]
     }
   }
