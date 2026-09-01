@@ -4,7 +4,7 @@
     "description": {
       "identifier": "siedler:soldier_chainmail_chestplate",
       "item": {
-        "minecraft:chainmail_chestplate": "query.is_item_name_any('slot.armor.chest', 0, 'minecraft:chainmail_chestplate')"
+        "minecraft:chainmail_chestplate": "query.is_item_name_any('slot.inventory', 3, 'minecraft:chainmail_chestplate')"
       },
       "materials": {
         "armor": "armor",
