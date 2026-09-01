@@ -2,23 +2,20 @@
   "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "siedler:soldier_chainmail_chestplate",
+      "identifier": "siedler:soldier_iron_chestplate",
       "item": {
-        "minecraft:chainmail_chestplate": "query.is_item_name_any('slot.inventory', 3, 'minecraft:chainmail_chestplate')"
+        "minecraft:iron_chestplate": "query.is_item_name_any('slot.armor.chest', 0, 'minecraft:iron_chestplate')"
       },
       "materials": {
-        "armor": "armor",
+        "default": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
-        "chainmail_1": "textures/models/armor/chain_1",
-        "enchanted": "textures/misc/enchanted_actor_glint"
+        "default": "textures/models/armor/iron_layer_1",
+        "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "chestplate": "geometry.soldier.equipment.chestplate"
-      },
-      "scripts": {
-        "parent_setup": "variable.chest_layer_visible = 0.0;"
+        "default": "geometry.soldier.equipment.chestplate"
       },
       "render_controllers": [
         "controller.render.soldier.chestplate"
