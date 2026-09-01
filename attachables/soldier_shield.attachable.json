@@ -7,7 +7,7 @@
         "minecraft:shield": "query.is_item_name_any('slot.weapon.offhand', 0, 'minecraft:shield')"
       },
       "materials": {
-        "item": "entity_alphatest",
+        "item": "entity",
         "enchanted": "entity_alphatest_glint"
       },
       "textures": {
