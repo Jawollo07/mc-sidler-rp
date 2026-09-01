@@ -3,11 +3,23 @@
   "minecraft:attachable": {
     "description": {
       "identifier": "siedler:soldier_iron_chestplate",
-      "item": {"minecraft:iron_chestplate": "query.is_item_name_any('slot.armor.chest', 0, 'minecraft:iron_chestplate')"},
-      "materials": {"default": "armor", "enchanted": "armor_enchanted"},
-      "textures": {"default": "textures/models/armor/iron_1", "enchanted": "textures/misc/enchanted_item_glint"},
-      "geometry": {"default": "geometry.soldier.equipment.chestplate"},
-      "render_controllers": ["controller.render.soldier.chestplate"]
+      "item": {
+        "minecraft:iron_chestplate": "query.is_item_name_any('slot.armor.chest', 0, 'minecraft:iron_chestplate')"
+      },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/models/armor/iron_1",
+        "enchanted": "textures/misc/enchanted_actor_glint"
+      },
+      "geometry": {
+        "default": "geometry.soldier.equipment.chestplate"
+      },
+      "render_controllers": [
+        "controller.render.soldier.chestplate"
+      ]
     }
   }
 }
