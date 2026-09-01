@@ -4,7 +4,7 @@
     "description": {
       "identifier": "siedler:soldier_chainmail_boots",
       "item": {
-        "minecraft:chainmail_boots": "query.is_item_name_any('slot.armor.feet', 0, 'minecraft:chainmail_boots')"
+        "minecraft:chainmail_boots": "query.is_item_name_any('slot.inventory', 5, 'minecraft:chainmail_boots')"
       },
       "materials": {
         "armor": "armor",
