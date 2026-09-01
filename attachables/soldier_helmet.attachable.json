@@ -3,11 +3,23 @@
   "minecraft:attachable": {
     "description": {
       "identifier": "siedler:soldier_iron_helmet",
-      "item": {"minecraft:iron_helmet": "query.is_item_name_any('slot.armor.head', 0, 'minecraft:iron_helmet')"},
-      "materials": {"default": "armor", "enchanted": "armor_enchanted"},
-      "textures": {"default": "textures/models/armor/iron_1", "enchanted": "textures/misc/enchanted_item_glint"},
-      "geometry": {"default": "geometry.soldier.equipment.helmet"},
-      "render_controllers": ["controller.render.soldier.helmet"]
+      "item": {
+        "minecraft:iron_helmet": "query.is_item_name_any('slot.armor.head', 0, 'minecraft:iron_helmet')"
+      },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/models/armor/iron_1",
+        "enchanted": "textures/misc/enchanted_actor_glint"
+      },
+      "geometry": {
+        "default": "geometry.soldier.equipment.helmet"
+      },
+      "render_controllers": [
+        "controller.render.soldier.helmet"
+      ]
     }
   }
 }
