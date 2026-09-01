@@ -4,7 +4,7 @@
     "description": {
       "identifier": "siedler:soldier_chainmail_leggings",
       "item": {
-        "minecraft:chainmail_leggings": "query.is_item_name_any('slot.inventory', 4, 'minecraft:chainmail_leggings')"
+        "minecraft:chainmail_leggings": "query.is_item_name_any('slot.armor.legs', 0, 'minecraft:chainmail_leggings')"
       },
       "materials": {
         "armor": "armor",
