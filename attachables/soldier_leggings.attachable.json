@@ -2,23 +2,20 @@
   "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "siedler:soldier_chainmail_leggings",
+      "identifier": "siedler:soldier_iron_leggings",
       "item": {
-        "minecraft:chainmail_leggings": "query.is_item_name_any('slot.inventory', 4, 'minecraft:chainmail_leggings')"
+        "minecraft:iron_leggings": "query.is_item_name_any('slot.armor.legs', 0, 'minecraft:iron_leggings')"
       },
       "materials": {
-        "armor": "armor",
+        "default": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
-        "chainmail_2": "textures/models/armor/chain_2",
-        "enchanted": "textures/misc/enchanted_actor_glint"
+        "default": "textures/models/armor/iron_layer_2",
+        "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "leggings": "geometry.soldier.equipment.leggings"
-      },
-      "scripts": {
-        "parent_setup": "variable.leg_layer_visible = 0.0;"
+        "default": "geometry.soldier.equipment.leggings"
       },
       "render_controllers": [
         "controller.render.soldier.leggings"
