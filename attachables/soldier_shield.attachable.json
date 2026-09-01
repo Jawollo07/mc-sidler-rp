@@ -4,7 +4,7 @@
     "description": {
       "identifier": "siedler:soldier_shield",
       "item": {
-        "minecraft:shield": "query.is_item_name_any('slot.inventory', 1, 'minecraft:shield')"
+        "minecraft:shield": "query.is_item_name_any('slot.weapon.offhand', 0, 'minecraft:shield')"
       },
       "materials": {
         "item": "entity_alphatest",
