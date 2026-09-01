@@ -3,8 +3,9 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "siedler:soldier",
+      "min_engine_version": "1.26.0",
       "materials": {
-        "default": "entity_alphatest"
+        "default": "entity"
       },
       "textures": {
         "default": "textures/entity/soldier"
