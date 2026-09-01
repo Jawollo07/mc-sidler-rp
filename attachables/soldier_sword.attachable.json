@@ -7,15 +7,15 @@
         "minecraft:iron_sword": "query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:iron_sword')"
       },
       "materials": {
-        "item": "entity",
+        "default": "entity",
         "enchanted": "entity_alphatest_glint"
       },
       "textures": {
-        "sword": "textures/items/iron_sword",
+        "default": "textures/items/iron_sword",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "sword": "geometry.soldier.equipment.sword"
+        "default": "geometry.soldier.equipment.sword"
       },
       "render_controllers": [
         "controller.render.soldier.sword"
