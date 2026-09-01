@@ -1,11 +1,165 @@
 {
-  "format_version": "1.12.0",
+  "format_version": "1.16.0",
   "minecraft:geometry": [
-    {"description":{"identifier":"geometry.soldier.equipment.sword","texture_width":16,"texture_height":16,"visible_bounds_width":1,"visible_bounds_height":1,"visible_bounds_offset":[0,0.5,0]},"bones":[{"name":"rightItem","pivot":[-6,15,1],"cubes":[{"origin":[-7,7,0],"size":[2,8,2],"uv":[0,0]}]}]},
-    {"description":{"identifier":"geometry.soldier.equipment.shield","texture_width":16,"texture_height":16,"visible_bounds_width":1.5,"visible_bounds_height":1.5,"visible_bounds_offset":[0,0.5,0]},"bones":[{"name":"leftItem","pivot":[6,15,1],"cubes":[{"origin":[4,9,0],"size":[2,8,2],"uv":[0,0]}]}]},
-    {"description":{"identifier":"geometry.soldier.equipment.helmet","texture_width":64,"texture_height":64,"visible_bounds_width":1.5,"visible_bounds_height":1.5,"visible_bounds_offset":[0,1,0]},"bones":[{"name":"helmet","pivot":[0,24,0],"cubes":[{"origin":[-4.5,23.5,-4.5],"size":[9,9,9],"uv":[0,0]}]}]},
-    {"description":{"identifier":"geometry.soldier.equipment.chestplate","texture_width":64,"texture_height":64,"visible_bounds_width":2,"visible_bounds_height":2,"visible_bounds_offset":[0,1,0]},"bones":[{"name":"body","pivot":[0,24,0],"cubes":[{"origin":[-4.5,11.5,-2.5],"size":[9,13,5],"uv":[16,16]}]}]},
-    {"description":{"identifier":"geometry.soldier.equipment.leggings","texture_width":64,"texture_height":64,"visible_bounds_width":1.5,"visible_bounds_height":2,"visible_bounds_offset":[0,1,0]},"bones":[{"name":"rightLeg","pivot":[-1.9,12,0],"cubes":[{"origin":[-4,-0.5,-2.5],"size":[4.2,12.5,5],"uv":[0,16]}]},{"name":"leftLeg","pivot":[1.9,12,0],"cubes":[{"origin":[-0.2,-0.5,-2.5],"size":[4.2,12.5,5],"uv":[16,48]}]}]},
-    {"description":{"identifier":"geometry.soldier.equipment.boots","texture_width":64,"texture_height":64,"visible_bounds_width":1.5,"visible_bounds_height":1,"visible_bounds_offset":[0,0.5,0]},"bones":[{"name":"rightLeg","pivot":[-1.9,12,0],"cubes":[{"origin":[-4.1,-0.5,-2.6],"size":[4.4,3,5.2],"uv":[0,16]}]},{"name":"leftLeg","pivot":[1.9,12,0],"cubes":[{"origin":[-0.3,-0.5,-2.6],"size":[4.4,3,5.2],"uv":[16,48]}]}]}
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment.sword",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 1.0,
+        "visible_bounds_height": 1.5,
+        "visible_bounds_offset": [0, 0.75, 0]
+      },
+      "bones": [
+        {
+          "name": "rightItem",
+          "pivot": [-6, 15, 1],
+          "cubes": [
+            {
+              "origin": [-7, 7, 0],
+              "size": [2, 8, 2],
+              "uv": [0, 0]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment.shield",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 1.5,
+        "visible_bounds_height": 1.5,
+        "visible_bounds_offset": [0, 0.75, 0]
+      },
+      "bones": [
+        {
+          "name": "leftItem",
+          "pivot": [6, 15, 1],
+          "cubes": [
+            {
+              "origin": [4, 9, 0],
+              "size": [2, 8, 2],
+              "uv": [0, 0]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment.helmet",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 1.5,
+        "visible_bounds_height": 1.5,
+        "visible_bounds_offset": [0, 1, 0]
+      },
+      "bones": [
+        {
+          "name": "helmet",
+          "pivot": [0, 24, 0],
+          "cubes": [
+            {
+              "origin": [-4.5, 23.5, -4.5],
+              "size": [9, 9, 9],
+              "uv": [0, 0]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment.chestplate",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 2.0,
+        "visible_bounds_height": 2.5,
+        "visible_bounds_offset": [0, 1.25, 0]
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [0, 24, 0],
+          "cubes": [
+            {
+              "origin": [-4.5, 11.5, -2.5],
+              "size": [9, 13, 5],
+              "uv": [16, 16]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment.leggings",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 1.5,
+        "visible_bounds_height": 2.0,
+        "visible_bounds_offset": [0, 1, 0]
+      },
+      "bones": [
+        {
+          "name": "rightLeg",
+          "pivot": [-1.9, 12, 0],
+          "cubes": [
+            {
+              "origin": [-4.0, -0.5, -2.5],
+              "size": [4.2, 12.5, 5],
+              "uv": [0, 16]
+            }
+          ]
+        },
+        {
+          "name": "leftLeg",
+          "pivot": [1.9, 12, 0],
+          "cubes": [
+            {
+              "origin": [-0.2, -0.5, -2.5],
+              "size": [4.2, 12.5, 5],
+              "uv": [16, 48]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.soldier.equipment.boots",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 1.5,
+        "visible_bounds_height": 1.0,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "rightLeg",
+          "pivot": [-1.9, 12, 0],
+          "cubes": [
+            {
+              "origin": [-4.1, -0.5, -2.6],
+              "size": [4.4, 3, 5.2],
+              "uv": [0, 16]
+            }
+          ]
+        },
+        {
+          "name": "leftLeg",
+          "pivot": [1.9, 12, 0],
+          "cubes": [
+            {
+              "origin": [-0.3, -0.5, -2.6],
+              "size": [4.4, 3, 5.2],
+              "uv": [16, 48]
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
