@@ -3,23 +3,11 @@
   "minecraft:attachable": {
     "description": {
       "identifier": "siedler:soldier_iron_boots",
-      "item": {
-        "minecraft:iron_boots": "query.is_item_name_any('slot.armor.feet', 0, 'minecraft:iron_boots')"
-      },
-      "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
-      },
-      "textures": {
-        "default": "textures/models/armor/iron_layer_1",
-        "enchanted": "textures/misc/enchanted_item_glint"
-      },
-      "geometry": {
-        "default": "geometry.soldier.equipment.boots"
-      },
-      "render_controllers": [
-        "controller.render.soldier.boots"
-      ]
+      "item": {"minecraft:iron_boots": "query.is_item_name_any('slot.armor.feet', 0, 'minecraft:iron_boots')"},
+      "materials": {"default": "armor", "enchanted": "armor_enchanted"},
+      "textures": {"default": "textures/models/armor/iron_1", "enchanted": "textures/misc/enchanted_item_glint"},
+      "geometry": {"default": "geometry.soldier.equipment.boots"},
+      "render_controllers": ["controller.render.soldier.boots"]
     }
   }
 }
