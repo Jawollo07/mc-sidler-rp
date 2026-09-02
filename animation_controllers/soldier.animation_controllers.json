@@ -7,22 +7,13 @@
         "default": {
           "animations": ["idle"],
           "transitions": [
-            { "move": "query.property('siedler:state') == 'move'" },
-            { "attack": "query.property('siedler:state') == 'attack'" }
+            { "move": "query.modified_move_speed > 0.01" }
           ]
         },
         "move": {
           "animations": ["walk"],
           "transitions": [
-            { "attack": "query.property('siedler:state') == 'attack'" },
-            { "default": "query.property('siedler:state') != 'move'" }
-          ]
-        },
-        "attack": {
-          "animations": ["attack"],
-          "transitions": [
-            { "move": "query.property('siedler:state') == 'move'" },
-            { "default": "query.property('siedler:state') != 'move' && query.property('siedler:state') != 'attack'" }
+            { "default": "query.modified_move_speed <= 0.01" }
           ]
         }
       }
