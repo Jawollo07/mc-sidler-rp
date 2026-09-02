@@ -5,7 +5,7 @@
       "identifier": "siedler:soldier",
       "min_engine_version": "1.26.0",
       "materials": {
-        "default": "entity"
+        "default": "entity_alphatest"
       },
       "textures": {
         "default": "textures/entity/soldier"
