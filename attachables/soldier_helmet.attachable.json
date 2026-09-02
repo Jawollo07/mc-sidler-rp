@@ -2,16 +2,16 @@
   "format_version": "1.20.30",
   "minecraft:attachable": {
     "description": {
-      "identifier": "siedler:soldier_iron_helmet",
+      "identifier": "siedler:soldier_chainmail_helmet",
       "item": {
-        "minecraft:iron_helmet": "query.is_item_name_any('slot.armor.head', 0, 'minecraft:iron_helmet')"
+        "minecraft:chainmail_helmet": "query.is_item_name_any('slot.armor.head', 0, 'minecraft:chainmail_helmet')"
       },
       "materials": {
         "default": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
-        "default": "textures/models/armor/iron_1",
+        "default": "textures/models/armor/chainmail_1",
         "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
