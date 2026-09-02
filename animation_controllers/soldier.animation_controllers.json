@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.soldier": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": ["idle"],
+          "transitions": [
+            { "move": "query.property('siedler:state') == 'move'" },
+            { "attack": "query.property('siedler:state') == 'attack'" }
+          ]
+        },
+        "move": {
+          "animations": ["walk"],
+          "transitions": [
+            { "attack": "query.property('siedler:state') == 'attack'" },
+            { "default": "query.property('siedler:state') != 'move'" }
+          ]
+        },
+        "attack": {
+          "animations": ["attack"],
+          "transitions": [
+            { "move": "query.property('siedler:state') == 'move'" },
+            { "default": "query.property('siedler:state') != 'move' && query.property('siedler:state') != 'attack'" }
+          ]
+        }
+      }
+    }
+  }
+}
