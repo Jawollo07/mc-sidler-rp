@@ -7,13 +7,13 @@
         "default": {
           "animations": ["idle"],
           "transitions": [
-            { "move": "query.modified_move_speed > 0.01" }
+            { "move": "query.is_moving" }
           ]
         },
         "move": {
           "animations": ["walk"],
           "transitions": [
-            { "default": "query.modified_move_speed <= 0.01" }
+            { "default": "!query.is_moving" }
           ]
         }
       }
