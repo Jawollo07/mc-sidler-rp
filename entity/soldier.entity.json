@@ -14,11 +14,14 @@
         "default": "geometry.soldier"
       },
       "animations": {
-        "idle": "animation.soldier.idle"
+        "idle": "animation.soldier.idle",
+        "walk": "animation.soldier.walk",
+        "attack": "animation.soldier.attack",
+        "controller": "controller.animation.soldier"
       },
       "scripts": {
         "animate": [
-          "idle"
+          "controller"
         ]
       },
       "render_controllers": [
