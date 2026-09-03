@@ -4,18 +4,10 @@
     "description": {
       "identifier": "siedler:trader",
       "min_engine_version": "1.26.0",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/trader"
-      },
-      "geometry": {
-        "default": "geometry.soldier"
-      },
-      "render_controllers": [
-        "controller.render.trader"
-      ],
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/trader" },
+      "geometry": { "default": "geometry.trader.food" },
+      "render_controllers": ["controller.render.trader"],
       "enable_attachables": false,
       "held_item_ignores_lighting": true
     }
