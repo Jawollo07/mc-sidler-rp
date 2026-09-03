@@ -1,0 +1,22 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "siedler:cavalry",
+      "min_engine_version": "1.26.0",
+      "materials": { "default": "entity" },
+      "textures": { "default": "textures/entity/soldier" },
+      "geometry": { "default": "geometry.soldier.cavalry" },
+      "animations": {
+        "idle": "animation.soldier.idle",
+        "walk": "animation.soldier.walk",
+        "attack": "animation.soldier.attack",
+        "controller": "controller.animation.soldier"
+      },
+      "scripts": { "animate": ["controller"] },
+      "render_controllers": ["controller.render.soldier"],
+      "enable_attachables": true,
+      "held_item_ignores_lighting": true
+    }
+  }
+}
