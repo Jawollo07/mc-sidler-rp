@@ -8,25 +8,24 @@
           "animations": ["idle"],
           "transitions": [
             { "attack": "query.property('siedler:combat_state') == 'attack'" },
-            { "move": "query.is_moving && query.property('siedler:combat_state') == 'move'" }
+            { "move": "query.is_moving" }
           ]
         },
         "move": {
           "animations": ["walk"],
           "transitions": [
             { "attack": "query.property('siedler:combat_state') == 'attack'" },
-            { "default": "!query.is_moving || query.property('siedler:combat_state') != 'move'" }
+            { "default": "!query.is_moving" }
           ],
-          "blend_transition": 0.12
+          "blend_transition": 0.08
         },
         "attack": {
           "animations": ["attack"],
           "transitions": [
-            { "move": "query.all_animations_finished && query.is_moving && query.property('siedler:combat_state') == 'move'" },
-            { "default": "query.all_animations_finished && query.property('siedler:combat_state') != 'attack'" },
+            { "move": "query.all_animations_finished && query.is_moving" },
             { "default": "query.all_animations_finished" }
           ],
-          "blend_transition": 0.08
+          "blend_transition": 0.05
         }
       }
     }
