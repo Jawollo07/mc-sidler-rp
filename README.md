@@ -11,7 +11,8 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Bogenschütze:** leichterer Körper, Kopfbedeckung und sichtbarer Köcher am Rücken.
 - **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel, Helm und Federbusch; das Pferd bleibt eine separate Mount-Entity.
 - Gemeinsame Idle-, Lauf- und Angriffsanimationen mit kompatiblen Bone-Namen.
-- Animation Controller reagiert auf `siedler:combat_state`.
+- Verbesserte Laufanimation mit gegenläufiger Bein-/Armbewegung und leichtem Körper-Bounce.
+- Der Animation Controller erkennt Bewegung direkt über `query.is_moving`, sodass die Laufanimation auch dann startet, wenn `siedler:combat_state` nicht explizit auf `move` gesetzt wurde.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
