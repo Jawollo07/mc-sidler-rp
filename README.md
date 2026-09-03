@@ -10,9 +10,12 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Infanterie:** schwere Silhouette, Schulter-/Beinschutz und Helmzier.
 - **Bogenschütze:** leichterer Körper, Kopfbedeckung und sichtbarer Köcher am Rücken.
 - **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel, Helm und Federbusch; das Pferd bleibt eine separate Mount-Entity.
-- Gemeinsame Idle-, Lauf- und Angriffsanimationen mit kompatiblen Bone-Namen.
-- Verbesserte Laufanimation mit gegenläufiger Bein-/Armbewegung und leichtem Körper-Bounce.
-- Der Animation Controller erkennt Bewegung direkt über `query.is_moving`, sodass die Laufanimation auch dann startet, wenn `siedler:combat_state` nicht explizit auf `move` gesetzt wurde.
+- Gemeinsame Idle- und Angriffsanimationen mit kompatiblen Bone-Namen.
+- **Individuelle Laufanimationen pro Soldatentyp:**
+  - **Infanterie:** schwerer Marsch mit stärkerem Bein-/Armschwung und deutlichem Schritt-Bounce.
+  - **Bogenschütze:** schnellerer, leichterer Lauf mit reduziertem Armschwung und beweglichem Köcher.
+  - **Kavallerie:** schneller Reiter-Rhythmus mit stärkerem Körper-Bounce, ruhigerem Armschwung und beweglichem Federbusch/Gürtel.
+- Der Animation Controller erkennt Bewegung direkt über `query.is_moving`, sodass die jeweilige Laufanimation auch dann startet, wenn `siedler:combat_state` nicht explizit auf `move` gesetzt wurde.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -64,4 +67,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Die Soldatentypen sollen bereits anhand ihrer Silhouette und Ausrüstung unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
+Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Die Soldatentypen sollen bereits anhand ihrer Silhouette, Ausrüstung und Bewegung unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
