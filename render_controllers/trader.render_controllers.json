@@ -2,7 +2,20 @@
   "format_version": "1.8.0",
   "render_controllers": {
     "controller.render.trader": {
-      "geometry": "query.has_tag('trader_building') ? Geometry.building : query.has_tag('trader_resources') ? Geometry.resources : query.has_tag('trader_tools') ? Geometry.tools : query.has_tag('trader_weapons') ? Geometry.weapons : query.has_tag('trader_supplies') ? Geometry.supplies : query.has_tag('trader_soldiers') ? Geometry.soldiers : Geometry.food",
+      "arrays": {
+        "geometries": {
+          "Array.trader_geometry": [
+            "Geometry.food",
+            "Geometry.building",
+            "Geometry.resources",
+            "Geometry.tools",
+            "Geometry.weapons",
+            "Geometry.supplies",
+            "Geometry.soldiers"
+          ]
+        }
+      },
+      "geometry": "Array.trader_geometry[query.variant]",
       "materials": [{ "*": "Material.default" }],
       "textures": ["Texture.default"]
     }
