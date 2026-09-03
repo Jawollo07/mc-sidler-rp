@@ -5,7 +5,7 @@
       "identifier": "siedler:soldier",
       "min_engine_version": "1.26.0",
       "materials": {
-        "default": "entity_alphatest"
+        "default": "entity"
       },
       "textures": {
         "default": "textures/entity/soldier"
@@ -27,8 +27,19 @@
       "render_controllers": [
         "controller.render.soldier"
       ],
+      "locators": {
+        "head": {
+          "head": [0, 4, 0]
+        },
+        "right_item": {
+          "rightItem": [0, 0, 0]
+        },
+        "left_item": {
+          "leftItem": [0, 0, 0]
+        }
+      },
       "enable_attachables": true,
-      "held_item_ignores_lighting": true,
+      "held_item_ignores_lighting": false,
       "hide_armor": false
     }
   }
