@@ -9,12 +9,12 @@
       "geometry": { "default": "geometry.soldier.infantry" },
       "animations": {
         "idle": "animation.soldier.idle",
-        "walk": "animation.soldier.walk",
+        "walk": "animation.soldier.infantry_walk",
         "attack": "animation.soldier.attack",
         "controller": "controller.animation.soldier"
       },
       "scripts": { "animate": ["controller"] },
-      "render_controllers": ["controller.render.soldier"] ,
+      "render_controllers": ["controller.render.soldier"],
       "enable_attachables": true,
       "held_item_ignores_lighting": true
     }
