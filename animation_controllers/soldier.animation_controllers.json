@@ -7,14 +7,14 @@
         "default": {
           "animations": ["idle"],
           "transitions": [
-            { "attack": "query.property('siedler:combat_state') == 'attack'" },
+            { "attack": "query.is_attacking" },
             { "move": "query.is_moving" }
           ]
         },
         "move": {
           "animations": ["walk"],
           "transitions": [
-            { "attack": "query.property('siedler:combat_state') == 'attack'" },
+            { "attack": "query.is_attacking" },
             { "default": "!query.is_moving" }
           ],
           "blend_transition": 0.08
@@ -22,8 +22,8 @@
         "attack": {
           "animations": ["attack"],
           "transitions": [
-            { "move": "query.all_animations_finished && query.is_moving" },
-            { "default": "query.all_animations_finished" }
+            { "move": "query.is_moving && !query.is_attacking" },
+            { "default": "!query.is_attacking" }
           ],
           "blend_transition": 0.05
         }
