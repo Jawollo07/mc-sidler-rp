@@ -30,11 +30,13 @@
 - [ ] Gruppen-/Formationsdarstellung unterstützen
 
 ## Phase 4 – Händler und Wirtschaft
-- [ ] Händler visuell von Soldaten stärker abheben
-- [ ] Mehrere Händler-Typen mit eigenen Erscheinungsbildern
-- [ ] Händler für Warenhandel
-- [ ] Händler für Soldaten-Rekrutierung
-- [ ] Händler für Spezial-/Militärwaren
+- [x] Händler visuell von Soldaten stärker abheben
+- [x] Mehrere Händler-Typen mit eigenen Erscheinungsbildern
+- [x] Händler für Warenhandel
+- [x] Händler für Soldaten-Rekrutierung
+- [x] Händler für Spezial-/Militärwaren
+- [x] Händler-Varianten über persistente Variant-Tags mit dem Behavior Pack verbinden
+- [x] Eigene Geometrien für Lebensmittel-, Baustoff-, Rohstoff-, Werkzeug-, Waffen-, Versorgungs- und Soldatenhändler
 
 ## Phase 5 – Qualität
 - [ ] Alle JSON-Dateien gegen die aktuelle Bedrock-Version testen
@@ -42,9 +44,10 @@
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
 - [ ] Animationen auf Idle → Move → Attack Übergänge testen
 - [ ] Individuelle Laufanimationen auf unterschiedlichen Bewegungsgeschwindigkeiten testen
+- [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [ ] Pack-Icon ergänzen
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Die drei Soldatentypen sollen zusätzlich über ihre Bewegung klar unterscheidbar sein.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Die drei Soldatentypen sowie die Händlerrollen sollen bereits anhand von Silhouette, Ausrüstung und Bewegung klar unterscheidbar sein.
