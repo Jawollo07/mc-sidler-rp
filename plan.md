@@ -7,6 +7,7 @@
 - [x] Render-Controller vereinheitlichen
 - [x] Idle-, Lauf- und Angriffsanimationen verbessern
 - [x] Laufanimation gegen Gleitbewegung absichern
+- [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
@@ -40,9 +41,10 @@
 - [ ] Modelle auf Z-Fighting und Clipping prüfen
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
 - [ ] Animationen auf Idle → Move → Attack Übergänge testen
+- [ ] Individuelle Laufanimationen auf unterschiedlichen Bewegungsgeschwindigkeiten testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [ ] Pack-Icon ergänzen
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen, Texturen und Attachables.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Die drei Soldatentypen sollen zusätzlich über ihre Bewegung klar unterscheidbar sein.
