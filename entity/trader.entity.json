@@ -6,7 +6,16 @@
       "min_engine_version": "1.26.0",
       "materials": { "default": "entity_alphatest" },
       "textures": { "default": "textures/entity/trader" },
-      "geometry": { "default": "geometry.trader.food" },
+      "geometry": {
+        "default": "geometry.trader.food",
+        "food": "geometry.trader.food",
+        "building": "geometry.trader.building",
+        "resources": "geometry.trader.resources",
+        "tools": "geometry.trader.tools",
+        "weapons": "geometry.trader.weapons",
+        "supplies": "geometry.trader.supplies",
+        "soldiers": "geometry.trader.soldiers"
+      },
       "render_controllers": ["controller.render.trader"],
       "enable_attachables": false,
       "held_item_ignores_lighting": true
