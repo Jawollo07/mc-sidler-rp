@@ -8,6 +8,8 @@
 - [x] Idle-, Lauf- und Angriffsanimationen verbessern
 - [x] Laufanimation gegen Gleitbewegung absichern
 - [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
+- [x] Animation Controller von optionalen Custom-Properties entkoppeln
+- [x] Rendering-Kette der Soldaten auf robuste Standard-Queries reduzieren
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
