@@ -9,9 +9,10 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - Eigene Geometrie für jeden Soldatentyp.
 - **Infanterie:** schwere Silhouette, Schulter-/Beinschutz und Helmzier.
 - **Bogenschütze:** leichterer Körper, Kopfbedeckung und sichtbarer Köcher am Rücken.
-- **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel, Helm und Federbusch; das Pferd bleibt eine separate Mount-Entity.
+- **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel und Federbusch; das Pferd bleibt eine separate Mount-Entity.
 - Individuelle Laufanimationen pro Soldatentyp.
-- Der Animation Controller erkennt Bewegung direkt über `query.is_moving`.
+- Stabiler gemeinsamer Animation Controller für Idle → Bewegung → Angriff.
+- Der Animation Controller verwendet nur robuste Standard-Queries (`query.is_moving` und `query.is_attacking`) und hängt nicht mehr von einer optionalen Custom-Property ab.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -26,6 +27,26 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Versorgungshändler:** großer Rucksack und zusammengerollte Versorgungslast.
 - **Soldatenhändler:** militärische Silhouette, Helmzier und Waffengürtel.
 - Die visuellen Varianten nutzen weiterhin die gemeinsame Händlertextur und bleiben damit performant und kompatibel mit den vorhandenen Händler-Commands.
+
+## Rendering-Fix
+
+Die Soldaten-Entities verwenden weiterhin ihre typ-spezifischen Geometrien über `Geometry.default`. Der gemeinsame Render Controller bleibt bewusst einfach. Der Animation Controller wurde von der nicht zwingend vorhandenen Custom-Property `siedler:combat_state` entkoppelt, da ein fehlerhaft ausgewerteter Custom-Property-Ausdruck den Client-Rendering-Pfad destabilisieren konnte.
+
+Die Kette ist damit:
+
+```text
+siedler:infantry / archer / cavalry
+        ↓
+Client Entity
+        ↓
+Geometry.default → geometry.soldier.<type>
+        ↓
+controller.render.soldier
+        ↓
+Material.default + Texture.default
+        ↓
+Animation Controller (Idle / Move / Attack)
+```
 
 ## Verzeichnisstruktur
 
@@ -49,10 +70,11 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 │   ├── soldier.entity.json
 │   └── trader.entity.json
 ├── models/
-│   ├── entity/soldier.geo.json
-│   ├── entity/soldier_types.geo.json
-│   ├── entity/trader_types.geo.json
-│   └── soldier_equipment.geo.json
+│   └── entity/
+│       ├── soldier.geo.json
+│       ├── soldier_equipment.geo.json
+│       ├── soldier_types.geo.json
+│       └── trader_types.geo.json
 ├── render_controllers/
 │   ├── soldier.render_controllers.json
 │   └── trader.render_controllers.json
@@ -88,4 +110,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Soldaten und Händler sollen bereits anhand ihrer Silhouette, Ausrüstung und Rolle unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
+Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Soldaten und Händler sollen bereits anhand ihrer Silhouette, Ausrüstung, Rolle und Bewegung unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
