@@ -9,7 +9,7 @@
       "geometry": { "default": "geometry.soldier.archer" },
       "animations": {
         "idle": "animation.soldier.idle",
-        "walk": "animation.soldier.walk",
+        "walk": "animation.soldier.archer_walk",
         "attack": "animation.soldier.attack",
         "controller": "controller.animation.soldier"
       },
