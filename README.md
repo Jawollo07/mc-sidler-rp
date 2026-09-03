@@ -17,7 +17,7 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ### Händler
 - `siedler:trader` besitzt eine gemeinsame Client-Entity mit sieben visuellen Varianten.
-- Die Variante wird über einen persistenten Händler-Tag aus dem Behavior Pack ausgewählt.
+- Die Variante wird über `minecraft:variant` aus dem Behavior Pack ausgewählt.
 - **Lebensmittelhändler:** Schürze und Warenkorb.
 - **Baustoffhändler:** Kopfbedeckung, Werkzeug-/Bauausstattung und Bauplan.
 - **Rohstoffhändler:** Bergmanns-Kopfbedeckung und Erz-/Rohstofftasche.
@@ -64,19 +64,19 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Händler-Varianten
 
-Die sieben Händler werden über `/siedler:trader <type>` bzw. `/siedler:trader_here <type>` erzeugt. Das Behavior Pack setzt dabei automatisch einen Variant-Tag:
+Die sieben Händler werden über `/siedler:trader <type>` bzw. `/siedler:trader_here <type>` erzeugt. Das Behavior Pack setzt dabei einen numerischen `minecraft:variant`-Wert und zusätzlich einen Rollen-Tag für die Soldatenhändler-Interaktion:
 
 ```text
-food       → trader_food
-building   → trader_building
-resources  → trader_resources
-tools      → trader_tools
-weapons    → trader_weapons
-supplies   → trader_supplies
-soldiers   → trader_soldiers
+food       → variant 0 → trader_food
+building   → variant 1 → trader_building
+resources  → variant 2 → trader_resources
+tools      → variant 3 → trader_tools
+weapons    → variant 4 → trader_weapons
+supplies   → variant 5 → trader_supplies
+soldiers   → variant 6 → trader_soldiers
 ```
 
-Der Render Controller wählt anhand dieses Tags die passende Geometrie. Ein Händler ohne bekannten Variant-Tag fällt auf die Lebensmittelhändler-Variante zurück.
+Der Render Controller wählt anhand von `query.variant` die passende Geometrie. Ein Händler ohne gesetzte Variante verwendet die Basisvariante 0.
 
 ## Abhängigkeit
 
