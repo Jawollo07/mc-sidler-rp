@@ -2,14 +2,18 @@
 
 ## Phase 1 – Stabilität
 - [x] Manifest auf aktuellen Entwicklungsstand bringen
-- [x] Soldat-Client-Entity prüfen und stabilisieren
+- [x] Soldat-Client-Entities prüfen und stabilisieren
 - [x] `enable_attachables` für Waffen und Rüstung aktivieren
 - [x] Render-Controller vereinheitlichen
 - [x] Idle-, Lauf- und Angriffsanimationen verbessern
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
-- [ ] Soldatenklassen visuell unterscheiden (z. B. Infanterie, Bogenschütze, Speerträger)
+- [x] Separate Client-Entities für Infanterie, Bogenschütze und Kavallerie
+- [x] Soldatentypen durch eigene Geometrien visuell unterscheiden
+- [x] Infanterie mit schwererer Silhouette und Schutzdetails darstellen
+- [x] Bogenschütze mit leichterer Silhouette und Köcher darstellen
+- [x] Kavallerie mit Reiter-Silhouette, Schutzdetails und Helmzier darstellen
 - [ ] Rüstung pro Ausrüstungsstufe sichtbar unterscheiden
 - [ ] Waffenmodelle für unterschiedliche Waffentypen ergänzen
 - [ ] Schilddarstellung und Offhand-Ausrichtung testen
@@ -40,4 +44,4 @@
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Animationen, Modelle, Texturen und Attachables.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen, Texturen und Attachables.
