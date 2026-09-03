@@ -1,10 +1,10 @@
 {
   "format_version": 2,
   "header": {
-    "description": "Siedler Logic Resource Pack",
+    "description": "Siedler Logic Resource Pack – Soldiers, Traders and equipment",
     "name": "Siedler Logic Resource Pack",
     "uuid": "c14b6f19-1d9a-4b62-878f-43391930a4aa",
-    "version": [1, 0, 3],
+    "version": [1, 1, 0],
     "min_engine_version": [1, 26, 0]
   },
   "modules": [
@@ -12,7 +12,7 @@
       "description": "Siedler Logic Resource Pack",
       "type": "resources",
       "uuid": "ec6e82cb-8fc2-4933-ac11-613499a4ddfc",
-      "version": [1, 0, 3]
+      "version": [1, 1, 0]
     }
   ]
 }
