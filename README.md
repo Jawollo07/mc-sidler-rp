@@ -10,18 +10,22 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Infanterie:** schwere Silhouette, Schulter-/Beinschutz und Helmzier.
 - **Bogenschütze:** leichterer Körper, Kopfbedeckung und sichtbarer Köcher am Rücken.
 - **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel, Helm und Federbusch; das Pferd bleibt eine separate Mount-Entity.
-- Gemeinsame Idle- und Angriffsanimationen mit kompatiblen Bone-Namen.
-- **Individuelle Laufanimationen pro Soldatentyp:**
-  - **Infanterie:** schwerer Marsch mit stärkerem Bein-/Armschwung und deutlichem Schritt-Bounce.
-  - **Bogenschütze:** schnellerer, leichterer Lauf mit reduziertem Armschwung und beweglichem Köcher.
-  - **Kavallerie:** schneller Reiter-Rhythmus mit stärkerem Körper-Bounce, ruhigerem Armschwung und beweglichem Federbusch/Gürtel.
-- Der Animation Controller erkennt Bewegung direkt über `query.is_moving`, sodass die jeweilige Laufanimation auch dann startet, wenn `siedler:combat_state` nicht explizit auf `move` gesetzt wurde.
+- Individuelle Laufanimationen pro Soldatentyp.
+- Der Animation Controller erkennt Bewegung direkt über `query.is_moving`.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
 ### Händler
-- `siedler:trader` besitzt eine eigene Client-Entity und Textur.
-- Der Händler verwendet aktuell das gemeinsame Humanoid-Grundmodell.
+- `siedler:trader` besitzt eine gemeinsame Client-Entity mit sieben visuellen Varianten.
+- Die Variante wird über einen persistenten Händler-Tag aus dem Behavior Pack ausgewählt.
+- **Lebensmittelhändler:** Schürze und Warenkorb.
+- **Baustoffhändler:** Kopfbedeckung, Werkzeug-/Bauausstattung und Bauplan.
+- **Rohstoffhändler:** Bergmanns-Kopfbedeckung und Erz-/Rohstofftasche.
+- **Werkzeughändler:** Werkzeug-/Werkzeuggürtel und Hammer.
+- **Waffenhändler:** Helm, Waffenhalter und Schwert.
+- **Versorgungshändler:** großer Rucksack und zusammengerollte Versorgungslast.
+- **Soldatenhändler:** militärische Silhouette, Helmzier und Waffengürtel.
+- Die visuellen Varianten nutzen weiterhin die gemeinsame Händlertextur und bleiben damit performant und kompatibel mit den vorhandenen Händler-Commands.
 
 ## Verzeichnisstruktur
 
@@ -47,6 +51,7 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 ├── models/
 │   ├── entity/soldier.geo.json
 │   ├── entity/soldier_types.geo.json
+│   ├── entity/trader_types.geo.json
 │   └── soldier_equipment.geo.json
 ├── render_controllers/
 │   ├── soldier.render_controllers.json
@@ -57,9 +62,25 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 └── manifest.json
 ```
 
+## Händler-Varianten
+
+Die sieben Händler werden über `/siedler:trader <type>` bzw. `/siedler:trader_here <type>` erzeugt. Das Behavior Pack setzt dabei automatisch einen Variant-Tag:
+
+```text
+food       → trader_food
+building   → trader_building
+resources  → trader_resources
+tools      → trader_tools
+weapons    → trader_weapons
+supplies   → trader_supplies
+soldiers   → trader_soldiers
+```
+
+Der Render Controller wählt anhand dieses Tags die passende Geometrie. Ein Händler ohne bekannten Variant-Tag fällt auf die Lebensmittelhändler-Variante zurück.
+
 ## Abhängigkeit
 
-Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behavior Packs `mc-siedler-bp` gedacht. Die Identifier müssen zwischen Behavior Pack und Resource Pack übereinstimmen.
+Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behavior Packs `mc-siedler-bp` gedacht. Die Identifier und Händler-Varianten müssen zwischen Behavior Pack und Resource Pack übereinstimmen.
 
 ## Entwicklung
 
@@ -67,4 +88,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Die Soldatentypen sollen bereits anhand ihrer Silhouette, Ausrüstung und Bewegung unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
+Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Soldaten und Händler sollen bereits anhand ihrer Silhouette, Ausrüstung und Rolle unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
