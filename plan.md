@@ -6,6 +6,7 @@
 - [x] `enable_attachables` für Waffen und Rüstung aktivieren
 - [x] Render-Controller vereinheitlichen
 - [x] Idle-, Lauf- und Angriffsanimationen verbessern
+- [x] Laufanimation gegen Gleitbewegung absichern
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
