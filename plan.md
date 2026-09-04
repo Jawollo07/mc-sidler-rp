@@ -31,6 +31,11 @@
 - [x] Vanilla-artige Idle- und Kopfbewegung integriert
 - [x] Vanilla-artige Nahkampf-Angriffsbewegung integriert
 - [x] Bogenschützen-Zielhaltung an den Vanilla-Humanoid-Stil angepasst
+- [x] **Infanterie, Bogenschütze und Kavallerie vollständig auf Pillager-orientierte Controller umgestellt**
+- [x] **Vanilla `variable.tcos0`-Laufberechnung für alle drei Soldaten aktiviert**
+- [x] **Pillager/Humanoid Bob-, Look-at-Target- und Bewegungsanimationen als gemeinsame Basis verwendet**
+- [x] **Pillager-Nahkampfangriff für Infanterie und Kavallerie übernommen**
+- [x] **Pillager-Crossbow-Hold-/Zielpose für den Bogenschützen übernommen**
 - [ ] Rüstung pro Ausrüstungsstufe sichtbar unterscheiden
 - [ ] Waffenmodelle für unterschiedliche Waffentypen ergänzen
 - [ ] Schilddarstellung und Offhand-Ausrichtung testen
@@ -57,14 +62,15 @@
 - [ ] Alle JSON-Dateien gegen die aktuelle Bedrock-Version testen
 - [ ] Modelle auf Z-Fighting und Clipping prüfen
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
-- [ ] Animationen auf Idle → Move → Attack Übergänge testen
-- [x] Sichtbarkeit der Soldaten mit dem stabilen Animation Controller auf Bedrock 1.26.x wiederhergestellt
+- [ ] Animationen auf Vanilla-Pillager-Look → Move → Attack Übergänge testen
+- [x] Sichtbarkeit der Soldaten mit einem stabilen Animation Controller auf Bedrock 1.26.x wiederhergestellt
 - [ ] Typ-spezifische Kampfanimationen auf dem Server mit echten Angriffen testen
-- [ ] Vanilla-Humanoid/Pillager-Laufbewegung auf unterschiedlichen Bewegungsgeschwindigkeiten testen
+- [ ] Vanilla-Pillager-Laufbewegung auf unterschiedlichen Bewegungsgeschwindigkeiten testen
+- [ ] Pillager-Crossbow-Hold-Pose des Bogenschützen mit echter Ziel-/Angriffslogik testen
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [x] Pack-Icon ergänzen
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Die Soldaten behalten ihre eigenen Geometrien und Ausrüstung, verwenden für grundlegende Bewegung und Kampf aber bewusst den bewährten Vanilla-Humanoid/Pillager-Stil. Dadurch soll die Bewegung ruhig, lesbar und Minecraft-nativ wirken, ohne das zuvor beobachtete starke Wippen oder Zappeln.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Infanterie, Bogenschütze und Kavallerie behalten ihre eigenen Geometrien und Ausrüstung, verwenden für die Animationen aber dieselbe Vanilla-Pillager/Humanoid-Grundlogik. Dadurch sollen alle Soldaten wie konsistente Minecraft-Humanoide laufen, schauen und kämpfen, ohne die zuvor beobachteten künstlichen Fisch-/Gleitbewegungen.
