@@ -8,9 +8,12 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - Drei getrennte Client-Entities: `siedler:infantry`, `siedler:archer` und `siedler:cavalry`.
 - Eigene Geometrie für jeden Soldatentyp.
 - Individuelle Laufanimationen pro Soldatentyp.
-- Der Soldaten-Animation-Controller wurde auf den zuletzt bekannten stabilen Stand zurückgesetzt, damit die Client-Entities wieder zuverlässig gerendert werden.
-- Der Angriff verwendet aktuell bewusst die gemeinsame, stabile `animation.soldier.attack`-Animation.
-- Typ-spezifische Kampfanimationen werden erst wieder aktiviert, nachdem die Sichtbarkeit auf Bedrock 1.26.x verifiziert wurde.
+- Stabiler gemeinsamer Animation Controller für Idle, Bewegung und Angriff.
+- Verfeinerte, typ-spezifische Kampfanimationen ohne `query.variant`-Abhängigkeit:
+  - Infanterie: kontrollierter Schwert-Hieb mit Ausholbewegung.
+  - Bogenschütze: ruhige Spann-/Schussbewegung.
+  - Kavallerie: schneller, kräftiger Hieb mit nach vorne geneigter Haltung.
+- Idle- und Laufbewegungen wurden bewusst reduziert, damit die Modelle weniger robotisch wirken.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -27,13 +30,21 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Animationen
 
-Die Soldaten verwenden aktuell wieder den stabilen Animationspfad:
+Die Soldaten verwenden weiterhin den stabilen Controller-Pfad:
 
 ```text
 Idle → Move → Attack
 ```
 
-Die typ-spezifischen Laufanimationen bleiben erhalten. Die zuletzt hinzugefügten individuellen Angriffsanimationen (`infantry_attack`, `archer_attack`, `cavalry_attack`) sind vorübergehend nicht an die Client-Entities gebunden, bis die Rendering-Kompatibilität auf Bedrock 1.26.x getestet wurde.
+Die Auswahl der Kampfanimation erfolgt jetzt direkt über die jeweilige Client-Entity. Dadurch muss der Animation Controller weder `query.variant` noch eine eigene Custom-Property auswerten.
+
+```text
+Infantry  → animation.soldier.infantry_attack
+Archer    → animation.soldier.archer_attack
+Cavalry   → animation.soldier.cavalry_attack
+```
+
+Die Animationen verwenden sanfte Zwischenphasen und kleinere Bewegungsamplituden, damit die Soldaten beim Laufen und Kämpfen weniger ruckartig wirken.
 
 ## Rendering-Kette
 
@@ -97,4 +108,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen anhand von Silhouette, Ausrüstung und Bewegung unterscheidbar sein. Neue Animationen werden erst nach erfolgreicher Validierung der Rendering-Kette aktiviert.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen anhand von Silhouette, Ausrüstung und Bewegung unterscheidbar sein. Animationen werden bevorzugt direkt an die jeweilige Client-Entity gebunden, während der gemeinsame Controller nur den Zustand steuert.
