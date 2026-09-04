@@ -10,16 +10,11 @@
       "animations": {
         "idle": "animation.soldier.idle",
         "walk": "animation.soldier.archer_walk",
-        "attack": "animation.soldier.archer_attack",
+        "attack": "animation.soldier.attack",
         "controller": "controller.animation.soldier"
       },
       "scripts": { "animate": ["controller"] },
       "render_controllers": ["controller.render.soldier"],
-      "locators": {
-        "head": { "head": [0, 4, 0] },
-        "right_item": { "rightItem": [0, 0, 0] },
-        "left_item": { "leftItem": [0, 0, 0] }
-      },
       "enable_attachables": true,
       "held_item_ignores_lighting": true
     }
