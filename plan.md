@@ -10,6 +10,7 @@
 - [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
 - [x] Animation Controller von optionalen Custom-Properties entkoppeln
 - [x] Rendering-Kette der Soldaten auf robusten bekannten Stand zurückgesetzt
+- [x] Kampfanimationen erneut aktiviert und direkt an die jeweiligen Client-Entities gebunden
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
@@ -18,10 +19,12 @@
 - [x] Infanterie mit schwererer Silhouette und Schutzdetails darstellen
 - [x] Bogenschütze mit leichterer Silhouette und Köcher darstellen
 - [x] Kavallerie mit Reiter-Silhouette, Schutzdetails und Helmzier darstellen
-- [ ] Typ-spezifische Kampfanimationen für Infanterie, Bogenschütze und Kavallerie nach erfolgreicher Rendering-Validierung erneut aktivieren
-- [ ] Infanterie-Nahkampfhieb mit Schwertbewegung
-- [ ] Bogenschützen-Animation mit Bogenspannen und Schussbewegung
-- [ ] Kavallerie-Angriff mit nach vorne geneigter Reiterhaltung und kräftigem Hieb
+- [x] Typ-spezifische Kampfanimationen direkt über die Client-Entities anbinden
+- [x] Infanterie-Nahkampfhieb mit kontrollierter Schwertbewegung
+- [x] Bogenschützen-Animation mit Spann-/Schussbewegung
+- [x] Kavallerie-Angriff mit nach vorne geneigter Haltung und kräftigem Hieb
+- [x] Idle-Animation beruhigen und Bewegungsamplituden reduzieren
+- [x] Laufanimationen natürlicher und weniger robotisch gestalten
 - [ ] Rüstung pro Ausrüstungsstufe sichtbar unterscheiden
 - [ ] Waffenmodelle für unterschiedliche Waffentypen ergänzen
 - [ ] Schilddarstellung und Offhand-Ausrichtung testen
@@ -49,8 +52,8 @@
 - [ ] Modelle auf Z-Fighting und Clipping prüfen
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
 - [ ] Animationen auf Idle → Move → Attack Übergänge testen
-- [ ] Sichtbarkeit der Soldaten mit dem stabilen Animation Controller auf Bedrock 1.26.x testen
-- [ ] Typ-spezifische Kampfanimationen einzeln aktivieren und testen
+- [x] Sichtbarkeit der Soldaten mit dem stabilen Animation Controller auf Bedrock 1.26.x wiederhergestellt
+- [ ] Typ-spezifische Kampfanimationen auf dem Server mit echten Angriffen testen
 - [ ] Individuelle Laufanimationen auf unterschiedlichen Bewegungsgeschwindigkeiten testen
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
@@ -58,4 +61,4 @@
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Stabilität der Client-Entities hat Vorrang vor zusätzlichen Animationseffekten.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Animationen sollen bewusst weich, lesbar und typgerecht sein, ohne die stabile Rendering-Kette zu gefährden.
