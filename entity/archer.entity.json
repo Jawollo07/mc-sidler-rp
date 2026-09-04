@@ -10,7 +10,7 @@
       "animations": {
         "idle": "animation.soldier.idle",
         "walk": "animation.soldier.archer_walk",
-        "attack": "animation.soldier.attack",
+        "attack": "animation.soldier.archer_attack",
         "controller": "controller.animation.soldier"
       },
       "scripts": { "animate": ["controller"] },
