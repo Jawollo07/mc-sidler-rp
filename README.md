@@ -7,66 +7,54 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 ### Soldaten
 - Drei getrennte Client-Entities: `siedler:infantry`, `siedler:archer` und `siedler:cavalry`.
 - Eigene Geometrie für jeden Soldatentyp.
-- **Infanterie:** schwere Silhouette, Schulter-/Beinschutz und Helmzier.
-- **Bogenschütze:** leichterer Körper, Kopfbedeckung und sichtbarer Köcher am Rücken.
-- **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel und Federbusch; das Pferd bleibt eine separate Mount-Entity.
-- Individuelle Laufanimationen pro Soldatentyp.
-- Die Laufzyklen werden über `query.modified_distance_moved` an die tatsächliche Bewegung gekoppelt. Dadurch bleiben Bein- und Armbewegung mit der Fortbewegung synchron und der bisherige „Gleit“-Eindruck wird deutlich reduziert.
-- Unterschiedliche Bewegungscharaktere für Infanterie, Bogenschütze und Kavallerie.
-- Ruhige Idle-Animation mit leichtem Atmen, Kopfbewegung und minimalem Gewichtswechsel.
-- Überarbeitete Nahkampfanimation mit klarer Aushol-, Schlag- und Rückkehrbewegung.
-- Animation Controller mit weichen Übergängen zwischen Idle → Move → Attack.
-- Der Controller verwendet die synchronisierte `siedler:combat_state`-Property aus dem Behavior Pack.
-- Attack-Animationen werden nach dem kurzen Angriffstakt wieder sauber in Idle/Move überführt.
+- Individuelle Laufanimationen pro Soldatentyp, synchronisiert mit der tatsächlichen Bewegung.
+- **Infanterie:** schwerer Schritt und ausgeprägter Schwert-/Nahkampfschwung.
+- **Bogenschütze:** ruhigerer Stand, Bogenspann-/Schussbewegung und weniger aggressiver Körpereinsatz.
+- **Kavallerie:** nach vorne geneigte Reiterhaltung und kräftiger, schneller Hieb.
+- Die drei Kampfstile besitzen eigene Animationen: `infantry_attack`, `archer_attack` und `cavalry_attack`.
+- Der Animation Controller wählt die Kampfanimation anhand des Soldatentyps.
+- Stabiler gemeinsamer Animation Controller für Idle → Bewegung → typ-spezifischen Angriff.
+- Der Animation Controller verwendet die synchronisierte `siedler:combat_state`-Property.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
-## Animationssystem
+### Händler
+- `siedler:trader` besitzt eine gemeinsame Client-Entity mit sieben visuellen Varianten.
+- Die Variante wird über `minecraft:variant` aus dem Behavior Pack ausgewählt.
+- **Lebensmittelhändler:** Schürze und Warenkorb.
+- **Baustoffhändler:** Kopfbedeckung, Werkzeug-/Bauausstattung und Bauplan.
+- **Rohstoffhändler:** Bergmanns-Kopfbedeckung und Erz-/Rohstofftasche.
+- **Werkzeughändler:** Werkzeug-/Werkzeuggürtel und Hammer.
+- **Waffenhändler:** Helm, Waffenhalter und Schwert.
+- **Versorgungshändler:** großer Rucksack und zusammengerollte Versorgungslast.
+- **Soldatenhändler:** militärische Silhouette, Helmzier und Waffengürtel.
 
-Die Soldatenanimationen sind jetzt bewusst in drei Ebenen aufgebaut:
+## Animationen
+
+Die Soldaten verwenden keine gemeinsame generische Angriffsanimation mehr. Der Controller unterscheidet die drei Typen:
 
 ```text
-Behavior Pack
-    │
-    └── siedler:combat_state
-          │
-          ▼
-Animation Controller
-    │
-    ├── default → idle
-    ├── move    → typ-spezifischer Laufzyklus
-    └── attack  → Nahkampfangriff
-          │
-          ▼
-Soldier Animations
-    │
-    ├── Infanterie: kräftiger, schwerer Schritt
-    ├── Bogenschütze: leichterer Schritt + Köcherbewegung
-    └── Kavallerie: schnellerer Reiter-Rhythmus
+Infanterie  → infantry_attack → schneller Nahkampfhieb
+Bogenschütze → archer_attack → Bogenspannen/Schussbewegung
+Kavallerie  → cavalry_attack → kräftiger Reiterhieb
 ```
 
-Wichtig ist die Kopplung der Laufanimation an die tatsächlich zurückgelegte Distanz statt an eine unabhängig laufende Zeitkurve. Dadurch passt die Schrittbewegung auch bei unterschiedlichen Bewegungsgeschwindigkeiten wesentlich besser.
+Die Laufzyklen bleiben ebenfalls typ-spezifisch. Bewegung wird über `query.modified_distance_moved` synchronisiert, damit die Beine nicht unabhängig von der tatsächlichen Fortbewegung laufen.
 
-## Rendering-Fix
-
-Die Soldaten-Entities verwenden weiterhin ihre typ-spezifischen Geometrien über `Geometry.default`. Der gemeinsame Render Controller bleibt bewusst einfach. Der Animation Controller liest `siedler:combat_state`, die vom Behavior-Pack für `idle`, `move` und `attack` synchronisiert wird.
-
-Die Kette ist damit:
+## Rendering-Kette
 
 ```text
 siedler:infantry / archer / cavalry
         ↓
 Client Entity
         ↓
-Geometry.default → geometry.soldier.<type>
+Geometry.default
         ↓
 controller.render.soldier
         ↓
-Material.default + Texture.default
-        ↓
 Animation Controller
         ↓
-Idle / typ-spezifisches Move / Attack
+Idle / Move / typ-spezifischer Attack
 ```
 
 ## Verzeichnisstruktur
@@ -105,25 +93,9 @@ Idle / typ-spezifisches Move / Attack
 └── manifest.json
 ```
 
-## Händler-Varianten
-
-Die sieben Händler werden über `/siedler:trader <type>` bzw. `/siedler:trader_here <type>` erzeugt. Das Behavior Pack setzt dabei einen numerischen `minecraft:variant`-Wert und zusätzlich einen Rollen-Tag für die Soldatenhändler-Interaktion:
-
-```text
-food       → variant 0 → trader_food
-building   → variant 1 → trader_building
-resources  → variant 2 → trader_resources
-tools      → variant 3 → trader_tools
-weapons    → variant 4 → trader_weapons
-supplies   → variant 5 → trader_supplies
-soldiers   → variant 6 → trader_soldiers
-```
-
-Der Render Controller wählt anhand von `query.variant` die passende Geometrie. Ein Händler ohne gesetzte Variante verwendet die Basisvariante 0.
-
 ## Abhängigkeit
 
-Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behavior Packs `mc-siedler-bp` gedacht. Die Identifier und Händler-Varianten müssen zwischen Behavior Pack und Resource Pack übereinstimmen.
+Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behavior Packs `mc-siedler-bp` gedacht. Die Identifier und Soldatentypen müssen zwischen Behavior Pack und Resource Pack übereinstimmen.
 
 ## Entwicklung
 
@@ -131,4 +103,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Das Resource Pack soll einen klar erkennbaren, einheitlichen Siedler-Look erhalten. Soldaten und Händler sollen bereits anhand ihrer Silhouette, Ausrüstung, Rolle und Bewegung unterscheidbar sein, während Gameplay-Daten und KI im Behavior Pack bleiben.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen bereits anhand von Silhouette, Ausrüstung und Bewegung sowie insbesondere anhand ihres unterschiedlichen Kampfstils erkennbar sein.
