@@ -11,26 +11,45 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Bogenschütze:** leichterer Körper, Kopfbedeckung und sichtbarer Köcher am Rücken.
 - **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel und Federbusch; das Pferd bleibt eine separate Mount-Entity.
 - Individuelle Laufanimationen pro Soldatentyp.
-- Stabiler gemeinsamer Animation Controller für Idle → Bewegung → Angriff.
-- Der Animation Controller verwendet die synchronisierte `siedler:combat_state`-Property, damit auch die per Script gesteuerte Bewegung und der Angriff zuverlässig animiert werden.
+- Die Laufzyklen werden über `query.modified_distance_moved` an die tatsächliche Bewegung gekoppelt. Dadurch bleiben Bein- und Armbewegung mit der Fortbewegung synchron und der bisherige „Gleit“-Eindruck wird deutlich reduziert.
+- Unterschiedliche Bewegungscharaktere für Infanterie, Bogenschütze und Kavallerie.
+- Ruhige Idle-Animation mit leichtem Atmen, Kopfbewegung und minimalem Gewichtswechsel.
+- Überarbeitete Nahkampfanimation mit klarer Aushol-, Schlag- und Rückkehrbewegung.
+- Animation Controller mit weichen Übergängen zwischen Idle → Move → Attack.
+- Der Controller verwendet die synchronisierte `siedler:combat_state`-Property aus dem Behavior Pack.
+- Attack-Animationen werden nach dem kurzen Angriffstakt wieder sauber in Idle/Move überführt.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
-### Händler
-- `siedler:trader` besitzt eine gemeinsame Client-Entity mit sieben visuellen Varianten.
-- Die Variante wird über `minecraft:variant` aus dem Behavior Pack ausgewählt.
-- **Lebensmittelhändler:** Schürze und Warenkorb.
-- **Baustoffhändler:** Kopfbedeckung, Werkzeug-/Bauausstattung und Bauplan.
-- **Rohstoffhändler:** Bergmanns-Kopfbedeckung und Erz-/Rohstofftasche.
-- **Werkzeughändler:** Werkzeug-/Werkzeuggürtel und Hammer.
-- **Waffenhändler:** Helm, Waffenhalter und Schwert.
-- **Versorgungshändler:** großer Rucksack und zusammengerollte Versorgungslast.
-- **Soldatenhändler:** militärische Silhouette, Helmzier und Waffengürtel.
-- Die visuellen Varianten nutzen weiterhin die gemeinsame Händlertextur und bleiben damit performant und kompatibel mit den vorhandenen Händler-Commands.
+## Animationssystem
+
+Die Soldatenanimationen sind jetzt bewusst in drei Ebenen aufgebaut:
+
+```text
+Behavior Pack
+    │
+    └── siedler:combat_state
+          │
+          ▼
+Animation Controller
+    │
+    ├── default → idle
+    ├── move    → typ-spezifischer Laufzyklus
+    └── attack  → Nahkampfangriff
+          │
+          ▼
+Soldier Animations
+    │
+    ├── Infanterie: kräftiger, schwerer Schritt
+    ├── Bogenschütze: leichterer Schritt + Köcherbewegung
+    └── Kavallerie: schnellerer Reiter-Rhythmus
+```
+
+Wichtig ist die Kopplung der Laufanimation an die tatsächlich zurückgelegte Distanz statt an eine unabhängig laufende Zeitkurve. Dadurch passt die Schrittbewegung auch bei unterschiedlichen Bewegungsgeschwindigkeiten wesentlich besser.
 
 ## Rendering-Fix
 
-Die Soldaten-Entities verwenden weiterhin ihre typ-spezifischen Geometrien über `Geometry.default`. Der gemeinsame Render Controller bleibt bewusst einfach. Der Animation Controller liest `siedler:combat_state`, die vom Behavior-Pack für `idle`, `move` und `attack` synchronisiert wird. Dadurch hängt die Darstellung nicht von Vanilla-Bewegungs- oder Angriffs-Queries ab.
+Die Soldaten-Entities verwenden weiterhin ihre typ-spezifischen Geometrien über `Geometry.default`. Der gemeinsame Render Controller bleibt bewusst einfach. Der Animation Controller liest `siedler:combat_state`, die vom Behavior-Pack für `idle`, `move` und `attack` synchronisiert wird.
 
 Die Kette ist damit:
 
@@ -45,7 +64,9 @@ controller.render.soldier
         ↓
 Material.default + Texture.default
         ↓
-Animation Controller über siedler:combat_state (Idle / Move / Attack)
+Animation Controller
+        ↓
+Idle / typ-spezifisches Move / Attack
 ```
 
 ## Verzeichnisstruktur
