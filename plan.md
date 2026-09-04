@@ -25,6 +25,7 @@
 - [x] Kavallerie-Angriff mit nach vorne geneigter Haltung und kräftigem Hieb
 - [x] Idle-Animation beruhigen und Bewegungsamplituden reduzieren
 - [x] Laufanimationen natürlicher und weniger robotisch gestalten
+- [x] Infanterie-Laufanimation auf einen ruhigen, klassischen Marsch ohne Ganzkörper-Wippen reduzieren
 - [ ] Rüstung pro Ausrüstungsstufe sichtbar unterscheiden
 - [ ] Waffenmodelle für unterschiedliche Waffentypen ergänzen
 - [ ] Schilddarstellung und Offhand-Ausrichtung testen
