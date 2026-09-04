@@ -10,6 +10,9 @@
 - [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
 - [x] Animation Controller von optionalen Custom-Properties entkoppeln
 - [x] Rendering-Kette der Soldaten auf robuste Standard-Queries reduzieren
+- [x] Laufzyklen an `query.modified_distance_moved` koppeln
+- [x] Weiche Idle → Move → Attack Übergänge ergänzen
+- [x] Angriffstakt und Rückkehr in den Bewegungszustand verbessern
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
@@ -44,8 +47,10 @@
 - [ ] Alle JSON-Dateien gegen die aktuelle Bedrock-Version testen
 - [ ] Modelle auf Z-Fighting und Clipping prüfen
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
-- [ ] Animationen auf Idle → Move → Attack Übergänge testen
-- [ ] Individuelle Laufanimationen auf unterschiedlichen Bewegungsgeschwindigkeiten testen
+- [x] Animationen auf Idle → Move → Attack Übergänge technisch verbessern
+- [ ] Animationen auf Idle → Move → Attack im Spiel mit echten Soldaten testen
+- [x] Individuelle Laufanimationen auf unterschiedliche Bewegungsgeschwindigkeiten vorbereiten
+- [ ] Individuelle Laufanimationen im Spiel auf unterschiedlichen Bewegungsgeschwindigkeiten testen
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [ ] Pack-Icon ergänzen
