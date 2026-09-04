@@ -10,7 +10,7 @@
 - [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
 - [x] Animation Controller von optionalen Custom-Properties entkoppeln
 - [x] Rendering-Kette der Soldaten auf robusten bekannten Stand zurückgesetzt
-- [x] Kampfanimationen erneut aktiviert und direkt an die jeweiligen Client-Entities gebunden
+- [x] Typ-spezifische Kampfanimationen sicher direkt an Client-Entities gebunden
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
@@ -20,8 +20,8 @@
 - [x] Bogenschütze mit leichterer Silhouette und Köcher darstellen
 - [x] Kavallerie mit Reiter-Silhouette, Schutzdetails und Helmzier darstellen
 - [x] Typ-spezifische Kampfanimationen direkt über die Client-Entities anbinden
-- [x] Infanterie-Nahkampfhieb mit kontrollierter Schwertbewegung
-- [x] Bogenschützen-Animation mit Spann-/Schussbewegung
+- [x] Infanterie-Nahkampfhieb mit kontrollierter Aushol- und Schlagbewegung
+- [x] Bogenschützen-Animation mit ruhiger Spann-/Schussbewegung
 - [x] Kavallerie-Angriff mit nach vorne geneigter Haltung und kräftigem Hieb
 - [x] Idle-Animation beruhigen und Bewegungsamplituden reduzieren
 - [x] Laufanimationen natürlicher und weniger robotisch gestalten
@@ -61,4 +61,4 @@
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Animationen sollen bewusst weich, lesbar und typgerecht sein, ohne die stabile Rendering-Kette zu gefährden.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Animationen sollen weich, lesbar und typgerecht sein, ohne die stabile Rendering-Kette zu gefährden.
