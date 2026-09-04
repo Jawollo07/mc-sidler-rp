@@ -7,13 +7,10 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 ### Soldaten
 - Drei getrennte Client-Entities: `siedler:infantry`, `siedler:archer` und `siedler:cavalry`.
 - Eigene Geometrie für jeden Soldatentyp.
-- Individuelle Laufanimationen pro Soldatentyp, synchronisiert mit der tatsächlichen Bewegung.
-- **Infanterie:** schwerer Schritt und ausgeprägter Schwert-/Nahkampfschwung.
-- **Bogenschütze:** ruhigerer Stand, Bogenspann-/Schussbewegung und weniger aggressiver Körpereinsatz.
-- **Kavallerie:** nach vorne geneigte Reiterhaltung und kräftiger, schneller Hieb.
-- Eigene Kampfanimationen: `infantry_attack`, `archer_attack` und `cavalry_attack`.
-- Die jeweilige Client-Entity bindet ihre Kampfanimation direkt als `attack` ein; dadurch ist keine Abhängigkeit von `query.variant` im Animation Controller nötig.
-- Der gemeinsame Animation Controller steuert nur den Zustand Idle → Bewegung → Angriff und verwendet ausschließlich robuste Standard-Queries bzw. die vorhandene `siedler:combat_state`-Property.
+- Individuelle Laufanimationen pro Soldatentyp.
+- Der Soldaten-Animation-Controller wurde auf den zuletzt bekannten stabilen Stand zurückgesetzt, damit die Client-Entities wieder zuverlässig gerendert werden.
+- Der Angriff verwendet aktuell bewusst die gemeinsame, stabile `animation.soldier.attack`-Animation.
+- Typ-spezifische Kampfanimationen werden erst wieder aktiviert, nachdem die Sichtbarkeit auf Bedrock 1.26.x verifiziert wurde.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -30,15 +27,13 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Animationen
 
-Die Soldaten besitzen typ-spezifische Angriffsanimationen:
+Die Soldaten verwenden aktuell wieder den stabilen Animationspfad:
 
 ```text
-Infanterie   → infantry_attack → schneller Nahkampfhieb
-Bogenschütze → archer_attack   → Bogenspannen/Schussbewegung
-Kavallerie   → cavalry_attack  → kräftiger Reiterhieb
+Idle → Move → Attack
 ```
 
-Die Laufzyklen bleiben ebenfalls typ-spezifisch. Bewegung wird über `query.modified_distance_moved` synchronisiert, damit die Beine nicht unabhängig von der tatsächlichen Fortbewegung laufen.
+Die typ-spezifischen Laufanimationen bleiben erhalten. Die zuletzt hinzugefügten individuellen Angriffsanimationen (`infantry_attack`, `archer_attack`, `cavalry_attack`) sind vorübergehend nicht an die Client-Entities gebunden, bis die Rendering-Kompatibilität auf Bedrock 1.26.x getestet wurde.
 
 ## Rendering-Kette
 
@@ -53,7 +48,7 @@ controller.render.soldier
         ↓
 Animation Controller
         ↓
-Idle / Move / Entity-spezifischer Attack
+Idle / Move / Attack
 ```
 
 ## Verzeichnisstruktur
@@ -102,4 +97,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen bereits anhand von Silhouette, Ausrüstung und Bewegung sowie insbesondere anhand ihres unterschiedlichen Kampfstils erkennbar sein.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen anhand von Silhouette, Ausrüstung und Bewegung unterscheidbar sein. Neue Animationen werden erst nach erfolgreicher Validierung der Rendering-Kette aktiviert.
