@@ -26,6 +26,11 @@
 - [x] Idle-Animation beruhigen und Bewegungsamplituden reduzieren
 - [x] Laufanimationen natürlicher und weniger robotisch gestalten
 - [x] Infanterie-Laufanimation auf einen ruhigen, klassischen Marsch ohne Ganzkörper-Wippen reduzieren
+- [x] Soldatenanimationen auf den Vanilla-Humanoid/Pillager-Bewegungsstil umgestellt
+- [x] Vanilla-artige Laufbewegung mit synchronen gegenläufigen Armen und Beinen
+- [x] Vanilla-artige Idle- und Kopfbewegung integriert
+- [x] Vanilla-artige Nahkampf-Angriffsbewegung integriert
+- [x] Bogenschützen-Zielhaltung an den Vanilla-Humanoid-Stil angepasst
 - [ ] Rüstung pro Ausrüstungsstufe sichtbar unterscheiden
 - [ ] Waffenmodelle für unterschiedliche Waffentypen ergänzen
 - [ ] Schilddarstellung und Offhand-Ausrichtung testen
@@ -55,11 +60,11 @@
 - [ ] Animationen auf Idle → Move → Attack Übergänge testen
 - [x] Sichtbarkeit der Soldaten mit dem stabilen Animation Controller auf Bedrock 1.26.x wiederhergestellt
 - [ ] Typ-spezifische Kampfanimationen auf dem Server mit echten Angriffen testen
-- [ ] Individuelle Laufanimationen auf unterschiedlichen Bewegungsgeschwindigkeiten testen
+- [ ] Vanilla-Humanoid/Pillager-Laufbewegung auf unterschiedlichen Bewegungsgeschwindigkeiten testen
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [x] Pack-Icon ergänzen
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Animationen sollen weich, lesbar und typgerecht sein, ohne die stabile Rendering-Kette zu gefährden.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Die Soldaten behalten ihre eigenen Geometrien und Ausrüstung, verwenden für grundlegende Bewegung und Kampf aber bewusst den bewährten Vanilla-Humanoid/Pillager-Stil. Dadurch soll die Bewegung ruhig, lesbar und Minecraft-nativ wirken, ohne das zuvor beobachtete starke Wippen oder Zappeln.
