@@ -20,10 +20,15 @@
           "blend_transition": 0.12
         },
         "attack": {
-          "animations": ["attack"],
+          "animations": [
+            { "infantry_attack": "query.variant == 0" },
+            { "archer_attack": "query.variant == 1" },
+            { "cavalry_attack": "query.variant == 2" },
+            "attack"
+          ],
           "transitions": [
             { "move": "query.property('siedler:combat_state') == 'move' && query.anim_time >= 0.70" },
-            { "default": "query.property('siedler:combat_state') != 'attack' || query.anim_time >= 0.75" }
+            { "default": "query.property('siedler:combat_state') != 'attack' || query.anim_time >= 1.15" }
           ],
           "blend_transition": 0.08
         }
