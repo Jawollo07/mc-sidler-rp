@@ -7,14 +7,14 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 ### Soldaten
 - Drei getrennte Client-Entities: `siedler:infantry`, `siedler:archer` und `siedler:cavalry`.
 - Eigene Geometrie für jeden Soldatentyp.
-- Stabiler gemeinsamer Animation Controller für Idle, Bewegung und Angriff.
-- Soldatenanimationen verwenden jetzt den **Vanilla-Humanoid/Pillager-Stil**.
-- Die Laufanimation orientiert sich an der normalen Minecraft-Marschbewegung mit gegenläufigen Armen und Beinen.
-- Kein künstliches Root-, Körper- oder Ganzkörper-Wippen beim normalen Laufen.
-- Kopfbewegung folgt dem Vanilla-Humanoid-Stil über das aktuelle Ziel.
-- Idle nutzt die dezente Vanilla-Humanoid-Armhaltung.
-- Angriffe verwenden die klassische Vanilla-Humanoid-Angriffsbewegung mit `variable.attack_time`.
-- Der Bogenschütze nutzt für den Angriff eine Vanilla-artige Bogen-/Zielhaltung.
+- **Alle drei Soldatentypen verwenden jetzt einen eigenen, Pillager-orientierten Animation Controller.**
+- Die grundlegende Animation folgt dem Vanilla-Pillager/Humanoid-Aufbau: Zielblick, Bewegung, Arm-Bob und Angriff werden additiv kombiniert.
+- Die Laufbewegung verwendet die Vanilla-Humanoid-Formel mit `variable.tcos0` sowie gegenläufigen Armen und Beinen.
+- Kein eigenes Ganzkörper-Wippen mehr als Bestandteil der Laufanimation.
+- Die Kopfbewegung folgt dem Vanilla-Humanoid/Pillager-Zielblick über `query.target_x_rotation` und `query.target_y_rotation`.
+- Die dezente Arm-Bob-Bewegung entspricht dem Vanilla-Humanoid-Stil.
+- Infanterie und Kavallerie verwenden die Vanilla-Humanoid/Pillager-Nahkampfangriffsbewegung.
+- Bogenschützen verwenden die Pillager-inspirierte Crossbow-Hold-/Zielhaltung für ihre Fernkampfpose.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -31,38 +31,44 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Animationen
 
-Die Soldaten verwenden weiterhin den stabilen Controller-Pfad:
+Die drei Soldaten besitzen getrennte Controller, nutzen aber dieselbe Vanilla-Pillager/Humanoid-Bewegungsbasis:
 
 ```text
-Idle → Move → Attack
+Infantry  → controller.animation.soldier.infantry
+Archer    → controller.animation.soldier.archer
+Cavalry   → controller.animation.soldier.cavalry
 ```
 
-Die Bewegungsanimationen wurden auf den bewährten Vanilla-Humanoid-Stil umgestellt. Als Vorlage dient die von Mojang verwendete Humanoid-Bewegung, bei der Arme und Beine über `query.modified_distance_moved` und `query.modified_move_speed` synchron gegenläufig bewegt werden.
+Gemeinsamer Vanilla-Pillager-Aufbau:
 
 ```text
-Idle   → Vanilla-Humanoid/Pillager-Stil
-Move   → Vanilla-Humanoid-Marsch
-Attack → Vanilla-Humanoid-Angriff
+Look at Target
+      +
+Pillager/Humanoid Move
+      +
+Pillager/Humanoid Bob
+      +
+Typ-spezifische Kampfpose
 ```
 
-Die drei Soldatentypen behalten ihre eigenen Client-Entities und Geometrien. Dadurch bleibt die visuelle Unterscheidung erhalten, während die grundlegende Bewegung konsistent und natürlich wirkt.
+Die Bewegungsanimation verwendet die von Mojang verwendete `variable.tcos0`-Berechnung. Dadurch laufen Arme und Beine synchron gegenläufig wie bei einem normalen Vanilla-Humanoid/Pillager. Die Angriffsebenen werden nur bei `query.is_attacking` zugeschaltet.
+
+Für den Bogenschützen wird die Pillager-Crossbow-Hold-Haltung als Fernkampfpose verwendet und an die vorhandenen Soldaten-Bones angepasst. Dadurch erhalten alle drei Soldatentypen denselben Vanilla-Grundcharakter, ohne ihre eigenen Geometrien zu verlieren.
 
 ## Rendering-Kette
 
 ```text
 siedler:infantry / archer / cavalry
         ↓
-Client Entity
+Typ-spezifische Client Entity
         ↓
-Geometry.default
+Eigene Soldaten-Geometrie
         ↓
 controller.render.soldier
         ↓
-Animation Controller
+Pillager/Humanoid Animation Controller
         ↓
-Vanilla Humanoid / Pillager Style
-        ↓
-Idle / Move / Attack
+Look + Move + Bob + Attack
 ```
 
 ## Verzeichnisstruktur
@@ -111,4 +117,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen anhand von Silhouette und Ausrüstung unterscheidbar sein, während die grundlegenden Bewegungen bewusst dem stabilen Vanilla-Humanoid/Pillager-Stil folgen. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen behalten ihre eigenen Geometrien und Ausrüstung, verwenden für Bewegung und Kampf aber bewusst den Vanilla-Pillager/Humanoid-Stil. Dadurch soll die Bewegung ruhig, lesbar und Minecraft-nativ wirken, ohne das zuvor beobachtete starke Wippen oder Zappeln.
