@@ -7,23 +7,23 @@
         "default": {
           "animations": ["idle"],
           "transitions": [
-            { "attack": "query.is_attacking" },
-            { "move": "query.is_moving" }
+            { "attack": "query.property('siedler:combat_state') == 'attack'" },
+            { "move": "query.property('siedler:combat_state') == 'move'" }
           ]
         },
         "move": {
           "animations": ["walk"],
           "transitions": [
-            { "attack": "query.is_attacking" },
-            { "default": "!query.is_moving" }
+            { "attack": "query.property('siedler:combat_state') == 'attack'" },
+            { "default": "query.property('siedler:combat_state') != 'move'" }
           ],
           "blend_transition": 0.08
         },
         "attack": {
           "animations": ["attack"],
           "transitions": [
-            { "move": "query.is_moving && !query.is_attacking" },
-            { "default": "!query.is_attacking" }
+            { "move": "query.property('siedler:combat_state') == 'move'" },
+            { "default": "query.property('siedler:combat_state') != 'attack'" }
           ],
           "blend_transition": 0.05
         }

@@ -12,7 +12,7 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Kavallerie:** breiterer Reiterkörper, Schulter-/Armschutz, Gürtel und Federbusch; das Pferd bleibt eine separate Mount-Entity.
 - Individuelle Laufanimationen pro Soldatentyp.
 - Stabiler gemeinsamer Animation Controller für Idle → Bewegung → Angriff.
-- Der Animation Controller verwendet nur robuste Standard-Queries (`query.is_moving` und `query.is_attacking`) und hängt nicht mehr von einer optionalen Custom-Property ab.
+- Der Animation Controller verwendet die synchronisierte `siedler:combat_state`-Property, damit auch die per Script gesteuerte Bewegung und der Angriff zuverlässig animiert werden.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -30,7 +30,7 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Rendering-Fix
 
-Die Soldaten-Entities verwenden weiterhin ihre typ-spezifischen Geometrien über `Geometry.default`. Der gemeinsame Render Controller bleibt bewusst einfach. Der Animation Controller wurde von der nicht zwingend vorhandenen Custom-Property `siedler:combat_state` entkoppelt, da ein fehlerhaft ausgewerteter Custom-Property-Ausdruck den Client-Rendering-Pfad destabilisieren konnte.
+Die Soldaten-Entities verwenden weiterhin ihre typ-spezifischen Geometrien über `Geometry.default`. Der gemeinsame Render Controller bleibt bewusst einfach. Der Animation Controller liest `siedler:combat_state`, die vom Behavior-Pack für `idle`, `move` und `attack` synchronisiert wird. Dadurch hängt die Darstellung nicht von Vanilla-Bewegungs- oder Angriffs-Queries ab.
 
 Die Kette ist damit:
 
@@ -45,7 +45,7 @@ controller.render.soldier
         ↓
 Material.default + Texture.default
         ↓
-Animation Controller (Idle / Move / Attack)
+Animation Controller über siedler:combat_state (Idle / Move / Attack)
 ```
 
 ## Verzeichnisstruktur

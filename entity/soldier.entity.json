@@ -15,7 +15,7 @@
       },
       "animations": {
         "idle": "animation.soldier.idle",
-        "walk": "animation.soldier.walk",
+        "walk": "animation.soldier.infantry_walk",
         "attack": "animation.soldier.attack",
         "controller": "controller.animation.soldier"
       },
