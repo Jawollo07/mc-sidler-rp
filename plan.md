@@ -10,6 +10,7 @@
 - [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
 - [x] Animation Controller von optionalen Custom-Properties entkoppeln
 - [x] Rendering-Kette der Soldaten auf robuste Standard-Queries reduzieren
+- [x] Typ-spezifische Angriffsanimation direkt in den jeweiligen Client-Entities verknüpfen
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
@@ -54,6 +55,7 @@
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [ ] Pack-Icon ergänzen
+- [ ] Sichtbarkeit der Soldaten nach Animation-Controller-Änderungen auf Bedrock 1.26.x verifizieren
 
 ## Designziel
 
