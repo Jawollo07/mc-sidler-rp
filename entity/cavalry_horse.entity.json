@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "siedler:cavalry_horse",
+      "min_engine_version": "1.26.0",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/entity/horse2/horse_brown"
+      },
+      "geometry": {
+        "default": "geometry.horse.v3"
+      },
+      "animations": {
+        "walk": "animation.horse.v3.walk",
+        "look_at_player": "animation.horse.v3.look_at_player"
+      },
+      "scripts": {
+        "animate": ["walk", "look_at_player"]
+      },
+      "render_controllers": ["controller.render.siedler.cavalry_horse"]
+    }
+  }
+}
