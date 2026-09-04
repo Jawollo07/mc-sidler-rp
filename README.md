@@ -11,10 +11,9 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 - **Infanterie:** schwerer Schritt und ausgeprägter Schwert-/Nahkampfschwung.
 - **Bogenschütze:** ruhigerer Stand, Bogenspann-/Schussbewegung und weniger aggressiver Körpereinsatz.
 - **Kavallerie:** nach vorne geneigte Reiterhaltung und kräftiger, schneller Hieb.
-- Die drei Kampfstile besitzen eigene Animationen: `infantry_attack`, `archer_attack` und `cavalry_attack`.
-- Der Animation Controller wählt die Kampfanimation anhand des Soldatentyps.
-- Stabiler gemeinsamer Animation Controller für Idle → Bewegung → typ-spezifischen Angriff.
-- Der Animation Controller verwendet die synchronisierte `siedler:combat_state`-Property.
+- Eigene Kampfanimationen: `infantry_attack`, `archer_attack` und `cavalry_attack`.
+- Die jeweilige Client-Entity bindet ihre Kampfanimation direkt als `attack` ein; dadurch ist keine Abhängigkeit von `query.variant` im Animation Controller nötig.
+- Der gemeinsame Animation Controller steuert nur den Zustand Idle → Bewegung → Angriff und verwendet ausschließlich robuste Standard-Queries bzw. die vorhandene `siedler:combat_state`-Property.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -31,12 +30,12 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Animationen
 
-Die Soldaten verwenden keine gemeinsame generische Angriffsanimation mehr. Der Controller unterscheidet die drei Typen:
+Die Soldaten besitzen typ-spezifische Angriffsanimationen:
 
 ```text
-Infanterie  → infantry_attack → schneller Nahkampfhieb
-Bogenschütze → archer_attack → Bogenspannen/Schussbewegung
-Kavallerie  → cavalry_attack → kräftiger Reiterhieb
+Infanterie   → infantry_attack → schneller Nahkampfhieb
+Bogenschütze → archer_attack   → Bogenspannen/Schussbewegung
+Kavallerie   → cavalry_attack  → kräftiger Reiterhieb
 ```
 
 Die Laufzyklen bleiben ebenfalls typ-spezifisch. Bewegung wird über `query.modified_distance_moved` synchronisiert, damit die Beine nicht unabhängig von der tatsächlichen Fortbewegung laufen.
@@ -54,7 +53,7 @@ controller.render.soldier
         ↓
 Animation Controller
         ↓
-Idle / Move / typ-spezifischer Attack
+Idle / Move / Entity-spezifischer Attack
 ```
 
 ## Verzeichnisstruktur
