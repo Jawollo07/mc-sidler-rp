@@ -1,0 +1,34 @@
+{
+  "namespace": "buxy_background",
+  "start_screen_background": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "main_background_panel@buxy_background.main_background_panel": { }
+      }
+    ]
+  },
+  "image_base": {
+    "type": "image",
+    "fill": true,
+    "keep_ratio": true,
+    "texture": "('textures/ui/bg/' + $frame_texture)"
+  },
+  "animation_base": {
+    "anim_type": "offset",
+    "easing": "linear",
+    "duration": 0.1,
+    "from": "$frame_offset",
+    "to": "$frame_offset"
+  },
+  "main_background_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "all_frames@frames_textures.all_frames": { }
+      }
+    ]
+  }
+}

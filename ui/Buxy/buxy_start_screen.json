@@ -1,0 +1,414 @@
+{
+  "namespace": "buxy_start_screen",
+  "start_screen_ui": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "controls": [
+      {
+        "title_panel": {
+          "type": "panel",
+          "size": [
+            "100%",
+            "30%"
+          ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            0,
+            30
+          ],
+          "controls": [
+            {
+              "title_text": {
+                "type": "label",
+                "text": "MINECRAFT",
+                "font_size": "large",
+                "font_scale_factor": 2.5,
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "btns@buxy_start_screen.btns": {
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [
+            40,
+            20
+          ]
+        }
+      },
+      {
+        "profile_panel@buxy_start_screen.profile_panel": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [
+            -10,
+            -10
+          ]
+        }
+      }
+    ]
+  },
+  "profile_panel": {
+    "type": "panel",
+    "size": [
+      92,
+      48
+    ],
+    "controls": [
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/Black",
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "alpha": 0.5
+        }
+      },
+      {
+        "content": {
+          "type": "stack_panel",
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "controls": [
+            {
+              "top": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  22
+                ],
+                "controls": [
+                  {
+                    "player_name": {
+                      "type": "label",
+                      "text": "#playername",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "color": [
+                        1,
+                        1,
+                        1
+                      ],
+                      "bindings": [
+                        {
+                          "binding_name": "#playername"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "#playername",
+                          "target_property_name": "#text"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "line": {
+                      "type": "image",
+                      "texture": "textures/ui/White",
+                      "size": [
+                        "100%",
+                        1
+                      ],
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "offset": [
+                        0,
+                        -2
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "pad": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  2
+                ]
+              }
+            },
+            {
+              "bottom": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [
+                  "100%",
+                  18
+                ],
+                "controls": [
+                  {
+                    "m@buxy_start_screen.icon_btn": {
+                      "$icon": "textures/ui/mail_icon",
+                      "$action": "button.menu_inbox"
+                    }
+                  },
+                  {
+                    "f@buxy_start_screen.icon_btn": {
+                      "$icon": "textures/ui/multiplayer_glyph_color",
+                      "$action": "button.friends_drawer"
+                    }
+                  },
+                  {
+                    "x@buxy_start_screen.icon_btn": {
+                      "$icon": "textures/items/book_normal",
+                      "$action": "button.menu_achievements"
+                    }
+                  },
+                  {
+                    "s@buxy_start_screen.icon_btn": {
+                      "$icon": "textures/ui/dressing_room_skins",
+                      "$action": "button.menu_skins"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "icon_btn": {
+    "type": "button",
+    "size": [
+      18,
+      18
+    ],
+    "default_control": "v_default",
+    "hover_control": "v_hover",
+    "pressed_control": "v_pressed",
+    "controls": [
+      {
+        "v_default": {
+          "type": "panel",
+          "controls": [
+            {
+              "b": {
+                "type": "image",
+                "texture": "textures/ui/button_borderless_dark"
+              }
+            },
+            {
+              "i": {
+                "type": "image",
+                "texture": "$icon",
+                "size": [
+                  "100% - 4px",
+                  "100% - 4px"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "v_hover": {
+          "type": "panel",
+          "controls": [
+            {
+              "b": {
+                "type": "image",
+                "texture": "textures/ui/focus_border_white"
+              }
+            },
+            {
+              "i": {
+                "type": "image",
+                "texture": "$icon",
+                "size": [
+                  "100% - 4px",
+                  "100% - 4px"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "v_pressed": {
+          "type": "panel",
+          "controls": [
+            {
+              "b": {
+                "type": "image",
+                "texture": "textures/ui/selected_border"
+              }
+            },
+            {
+              "i": {
+                "type": "image",
+                "texture": "$icon",
+                "size": [
+                  "100% - 4px",
+                  "100% - 4px"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$action",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+  "btns": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [
+      150,
+      "default"
+    ],
+    "controls": [
+      {
+        "b1@buxy_start_screen.m_btn": {
+          "$btn_label": "menu.play",
+          "$btn_action": "button.menu_play"
+        }
+      },
+      {
+        "p1": {
+          "type": "panel",
+          "size": [
+            0,
+            4
+          ]
+        }
+      },
+      {
+        "b2@buxy_start_screen.m_btn": {
+          "$btn_label": "menu.settings",
+          "$btn_action": "button.menu_settings"
+        }
+      },
+      {
+        "p2": {
+          "type": "panel",
+          "size": [
+            0,
+            4
+          ]
+        }
+      },
+      {
+        "b7@buxy_start_screen.m_btn": {
+          "$btn_label": "menu.store",
+          "$btn_action": "button.menu_store"
+        }
+      },
+      {
+        "p7": {
+          "type": "panel",
+          "size": [
+            0,
+            4
+          ]
+        }
+      },
+      {
+        "b9@buxy_start_screen.m_btn": {
+          "$btn_label": "menu.quit",
+          "$btn_action": "button.menu_exit"
+        }
+      }
+    ]
+  },
+  "m_btn": {
+    "type": "button",
+    "size": [
+      "100%",
+      20
+    ],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "default_control": "d",
+    "hover_control": "h",
+    "pressed_control": "p",
+    "controls": [
+      {
+        "d": {
+          "type": "label",
+          "text": "$btn_label",
+          "localize": true,
+          "color": [
+            0.8,
+            0.8,
+            0.8
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+        }
+      },
+      {
+        "h": {
+          "type": "label",
+          "text": "$btn_label",
+          "localize": true,
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [
+            6,
+            0
+          ]
+        }
+      },
+      {
+        "p": {
+          "type": "label",
+          "text": "$btn_label",
+          "localize": true,
+          "color": [
+            1,
+            1,
+            0
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [
+            10,
+            0
+          ]
+        }
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$btn_action",
+        "mapping_type": "pressed"
+      }
+    ]
+  }
+}

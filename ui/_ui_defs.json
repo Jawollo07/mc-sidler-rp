@@ -1,0 +1,8 @@
+{
+  "ui_defs": [
+    "ui/Buxy/buxy_start_screen.json",
+    "ui/Buxy/buxy_background.json",
+    "ui/Buxy/Frames/frames_animation.json",
+    "ui/Buxy/Frames/frames_textures.json"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "namespace": "frames_animation",
+  "frame_1@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "0%" ],
+    "next": "@frames_animation.frame_2"
+  },
+  "frame_2@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-100%" ],
+    "next": "@frames_animation.frame_3"
+  },
+  "frame_3@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-200%" ],
+    "next": "@frames_animation.frame_4"
+  },
+  "frame_4@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-300%" ],
+    "next": "@frames_animation.frame_5"
+  },
+  "frame_5@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-400%" ],
+    "next": "@frames_animation.frame_6"
+  },
+  "frame_6@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-500%" ],
+    "next": "@frames_animation.frame_7"
+  },
+  "frame_7@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-600%" ],
+    "next": "@frames_animation.frame_8"
+  },
+  "frame_8@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-700%" ],
+    "next": "@frames_animation.frame_9"
+  },
+  "frame_9@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-800%" ],
+    "next": "@frames_animation.frame_10"
+  },
+  "frame_10@buxy_background.animation_base": {
+    "$frame_offset": [ 0, "-900%" ],
+    "next": "@frames_animation.frame_1"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "namespace": "frames_textures",
+  "all_frames": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "offset": "@frames_animation.frame_1",
+    "controls": [
+      { "f1@buxy_background.image_base": { "$frame_texture": "1" } },
+      { "f2@buxy_background.image_base": { "$frame_texture": "2" } },
+      { "f3@buxy_background.image_base": { "$frame_texture": "3" } },
+      { "f4@buxy_background.image_base": { "$frame_texture": "4" } },
+      { "f5@buxy_background.image_base": { "$frame_texture": "5" } },
+      { "f6@buxy_background.image_base": { "$frame_texture": "6" } },
+      { "f7@buxy_background.image_base": { "$frame_texture": "7" } },
+      { "f8@buxy_background.image_base": { "$frame_texture": "8" } },
+      { "f9@buxy_background.image_base": { "$frame_texture": "9" } },
+      { "f10@buxy_background.image_base": { "$frame_texture": "10" } }
+    ]
+  }
+}

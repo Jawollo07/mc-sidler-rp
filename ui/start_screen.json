@@ -1,0 +1,6 @@
+{
+  "start_screen": {
+    "$screen_content": "buxy_start_screen.start_screen_ui",
+    "$screen_bg_content": "buxy_background.start_screen_background"
+  }
+}
