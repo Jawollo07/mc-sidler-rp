@@ -1,76 +1,47 @@
 {
   "format_version": "1.8.0",
   "animations": {
-    "animation.soldier.idle": {
+    "animation.soldier.pillager_bob": {
+      "loop": true,
+      "bones": {
+        "leftArm": {
+          "rotation": [0, 0, "((math.cos(query.life_time * 103.2) * 2.865) + 2.865) * -1.0"]
+        },
+        "rightArm": {
+          "rotation": [0, 0, "(math.cos(query.life_time * 103.2) * 2.865) + 2.865"]
+        }
+      }
+    },
+    "animation.soldier.pillager_look_at_target": {
       "loop": true,
       "bones": {
         "head": {
           "rotation": ["query.target_x_rotation", "query.target_y_rotation", 0]
-        },
-        "rightArm": {
-          "rotation": [0, 0, "(math.cos(query.life_time * 103.2) * 2.865) + 2.865"]
-        },
-        "leftArm": {
-          "rotation": [0, 0, "-(math.cos(query.life_time * 103.2) * 2.865) - 2.865"]
         }
       }
     },
-    "animation.soldier.infantry_walk": {
+    "animation.soldier.pillager_move": {
       "loop": true,
       "bones": {
         "leftArm": {
-          "rotation": ["(math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3", 0, 0]
+          "rotation": ["variable.tcos0", 0, 0]
         },
         "leftLeg": {
-          "rotation": ["((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3) * -1.4", 0, 0]
+          "rotation": ["variable.tcos0 * -1.4", -0.1, -0.1]
         },
         "rightArm": {
-          "rotation": ["-((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3)", 0, 0]
+          "rotation": ["-variable.tcos0", 0, 0]
         },
         "rightLeg": {
-          "rotation": ["((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3) * 1.4", 0, 0]
+          "rotation": ["variable.tcos0 * 1.4", 0.1, 0.1]
         }
       }
     },
-    "animation.soldier.archer_walk": {
-      "loop": true,
-      "bones": {
-        "leftArm": {
-          "rotation": ["(math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3", 0, 0]
-        },
-        "leftLeg": {
-          "rotation": ["((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3) * -1.4", 0, 0]
-        },
-        "rightArm": {
-          "rotation": ["-((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3)", 0, 0]
-        },
-        "rightLeg": {
-          "rotation": ["((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3) * 1.4", 0, 0]
-        }
-      }
-    },
-    "animation.soldier.cavalry_walk": {
-      "loop": true,
-      "bones": {
-        "leftArm": {
-          "rotation": ["(math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3", 0, 0]
-        },
-        "leftLeg": {
-          "rotation": ["((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3) * -1.4", 0, 0]
-        },
-        "rightArm": {
-          "rotation": ["-((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3)", 0, 0]
-        },
-        "rightLeg": {
-          "rotation": ["((math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / 0.35) * 57.3) * 1.4", 0, 0]
-        }
-      }
-    },
-    "animation.soldier.infantry_attack": {
+    "animation.soldier.pillager_attack": {
       "loop": true,
       "bones": {
         "body": {
-          "rotation": [0, "math.sin(math.sqrt(variable.attack_time) * 360) * 11.46", 0]
+          "rotation": [0, "math.sin(math.sqrt(variable.attack_time) * 360) * 11.46 - this", 0]
         },
         "leftArm": {
           "rotation": ["math.sin(math.sqrt(variable.attack_time) * 360) * 11.46", 0, 0]
@@ -80,42 +51,25 @@
         }
       }
     },
-    "animation.soldier.archer_attack": {
+    "animation.soldier.pillager_crossbow_charge": {
       "loop": true,
       "bones": {
         "leftArm": {
-          "rotation": ["query.target_x_rotation - 90.0 - math.sin(query.life_time * 76.8) * 2.865", "query.target_y_rotation + 28.65", "-(math.cos(query.life_time * 103.2) * 2.865) - 2.865"]
+          "rotation": ["math.lerp(-90.0 + 34.38, -90.0, variable.crossbow_charge) - this", "math.lerp(22.92, 48.70, variable.crossbow_charge) - this", 0]
         },
         "rightArm": {
-          "rotation": ["query.target_x_rotation - 90.0 + math.sin(query.life_time * 76.8) * 2.865", "query.target_y_rotation - 5.73", "(math.cos(query.life_time * 103.2) * 2.865) + 2.865"]
+          "rotation": ["-90.0 + 34.38 - this", "-45.84 - this", 0]
         }
       }
     },
-    "animation.soldier.cavalry_attack": {
+    "animation.soldier.pillager_crossbow_hold": {
       "loop": true,
       "bones": {
-        "body": {
-          "rotation": [0, "math.sin(math.sqrt(variable.attack_time) * 360) * 11.46", 0]
-        },
         "leftArm": {
-          "rotation": ["math.sin(math.sqrt(variable.attack_time) * 360) * 11.46", 0, 0]
+          "rotation": ["-85.94 + query.target_x_rotation - this", "34.38 + math.clamp(query.target_y_rotation, -45, 25) - this", 0]
         },
         "rightArm": {
-          "rotation": ["math.sin(1.0 - math.pow(1.0 - variable.attack_time, 3.0) * 180.0)", "(math.sin(math.sqrt(variable.attack_time) * 360) * 11.46) * 2.0", 0]
-        }
-      }
-    },
-    "animation.soldier.attack": {
-      "loop": true,
-      "bones": {
-        "body": {
-          "rotation": [0, "math.sin(math.sqrt(variable.attack_time) * 360) * 11.46", 0]
-        },
-        "leftArm": {
-          "rotation": ["math.sin(math.sqrt(variable.attack_time) * 360) * 11.46", 0, 0]
-        },
-        "rightArm": {
-          "rotation": ["math.sin(1.0 - math.pow(1.0 - variable.attack_time, 3.0) * 180.0)", "(math.sin(math.sqrt(variable.attack_time) * 360) * 11.46) * 2.0", 0]
+          "rotation": ["-90.0 + 5.73 + query.target_x_rotation - this", "-17.19 + math.clamp(query.target_y_rotation, -25, 45) - this", 0]
         }
       }
     }
