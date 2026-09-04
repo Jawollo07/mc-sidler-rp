@@ -13,6 +13,7 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
   - Infanterie: kontrollierter Schwert-Hieb mit Ausholbewegung.
   - Bogenschütze: ruhige Spann-/Schussbewegung.
   - Kavallerie: schneller, kräftiger Hieb mit nach vorne geneigter Haltung.
+- Die Infanterie-Laufanimation wurde auf einen ruhigen, klassischen Marsch reduziert: nur gegenläufige Arm-/Beinbewegungen, kein künstliches Hoch-/Runterwippen des gesamten Körpers.
 - Idle- und Laufbewegungen wurden bewusst reduziert, damit die Modelle weniger robotisch wirken.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
@@ -44,7 +45,7 @@ Archer    → animation.soldier.archer_attack
 Cavalry   → animation.soldier.cavalry_attack
 ```
 
-Die Animationen verwenden sanfte Zwischenphasen und kleinere Bewegungsamplituden, damit die Soldaten beim Laufen und Kämpfen weniger ruckartig wirken.
+Die Infanterie verwendet beim Laufen bewusst nur die vier Gliedmaßen als Hauptbewegung. Dadurch bleiben Kopf, Torso und Root stabil und der Soldat wirkt wie ein marschierender Charakter statt wie ein stark wippendes oder gleitendes Modell.
 
 ## Rendering-Kette
 
