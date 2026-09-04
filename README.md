@@ -7,14 +7,14 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 ### Soldaten
 - Drei getrennte Client-Entities: `siedler:infantry`, `siedler:archer` und `siedler:cavalry`.
 - Eigene Geometrie für jeden Soldatentyp.
-- Individuelle Laufanimationen pro Soldatentyp.
 - Stabiler gemeinsamer Animation Controller für Idle, Bewegung und Angriff.
-- Verfeinerte, typ-spezifische Kampfanimationen ohne `query.variant`-Abhängigkeit:
-  - Infanterie: kontrollierter Schwert-Hieb mit Ausholbewegung.
-  - Bogenschütze: ruhige Spann-/Schussbewegung.
-  - Kavallerie: schneller, kräftiger Hieb mit nach vorne geneigter Haltung.
-- Die Infanterie-Laufanimation wurde auf einen ruhigen, klassischen Marsch reduziert: nur gegenläufige Arm-/Beinbewegungen, kein künstliches Hoch-/Runterwippen des gesamten Körpers.
-- Idle- und Laufbewegungen wurden bewusst reduziert, damit die Modelle weniger robotisch wirken.
+- Soldatenanimationen verwenden jetzt den **Vanilla-Humanoid/Pillager-Stil**.
+- Die Laufanimation orientiert sich an der normalen Minecraft-Marschbewegung mit gegenläufigen Armen und Beinen.
+- Kein künstliches Root-, Körper- oder Ganzkörper-Wippen beim normalen Laufen.
+- Kopfbewegung folgt dem Vanilla-Humanoid-Stil über das aktuelle Ziel.
+- Idle nutzt die dezente Vanilla-Humanoid-Armhaltung.
+- Angriffe verwenden die klassische Vanilla-Humanoid-Angriffsbewegung mit `variable.attack_time`.
+- Der Bogenschütze nutzt für den Angriff eine Vanilla-artige Bogen-/Zielhaltung.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 - Enchanting-Glint wird über eigene Render-Controller unterstützt.
 
@@ -37,15 +37,15 @@ Die Soldaten verwenden weiterhin den stabilen Controller-Pfad:
 Idle → Move → Attack
 ```
 
-Die Auswahl der Kampfanimation erfolgt jetzt direkt über die jeweilige Client-Entity. Dadurch muss der Animation Controller weder `query.variant` noch eine eigene Custom-Property auswerten.
+Die Bewegungsanimationen wurden auf den bewährten Vanilla-Humanoid-Stil umgestellt. Als Vorlage dient die von Mojang verwendete Humanoid-Bewegung, bei der Arme und Beine über `query.modified_distance_moved` und `query.modified_move_speed` synchron gegenläufig bewegt werden.
 
 ```text
-Infantry  → animation.soldier.infantry_attack
-Archer    → animation.soldier.archer_attack
-Cavalry   → animation.soldier.cavalry_attack
+Idle   → Vanilla-Humanoid/Pillager-Stil
+Move   → Vanilla-Humanoid-Marsch
+Attack → Vanilla-Humanoid-Angriff
 ```
 
-Die Infanterie verwendet beim Laufen bewusst nur die vier Gliedmaßen als Hauptbewegung. Dadurch bleiben Kopf, Torso und Root stabil und der Soldat wirkt wie ein marschierender Charakter statt wie ein stark wippendes oder gleitendes Modell.
+Die drei Soldatentypen behalten ihre eigenen Client-Entities und Geometrien. Dadurch bleibt die visuelle Unterscheidung erhalten, während die grundlegende Bewegung konsistent und natürlich wirkt.
 
 ## Rendering-Kette
 
@@ -59,6 +59,8 @@ Geometry.default
 controller.render.soldier
         ↓
 Animation Controller
+        ↓
+Vanilla Humanoid / Pillager Style
         ↓
 Idle / Move / Attack
 ```
@@ -109,4 +111,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen anhand von Silhouette, Ausrüstung und Bewegung unterscheidbar sein. Animationen werden bevorzugt direkt an die jeweilige Client-Entity gebunden, während der gemeinsame Controller nur den Zustand steuert.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte mit vielen Soldaten bleiben. Die drei Soldatentypen sollen anhand von Silhouette und Ausrüstung unterscheidbar sein, während die grundlegenden Bewegungen bewusst dem stabilen Vanilla-Humanoid/Pillager-Stil folgen. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables.
