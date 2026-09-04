@@ -10,9 +10,6 @@
 - [x] Individuelle Laufanimationen für Infanterie, Bogenschütze und Kavallerie
 - [x] Animation Controller von optionalen Custom-Properties entkoppeln
 - [x] Rendering-Kette der Soldaten auf robuste Standard-Queries reduzieren
-- [x] Laufzyklen an `query.modified_distance_moved` koppeln
-- [x] Weiche Idle → Move → Attack Übergänge ergänzen
-- [x] Angriffstakt und Rückkehr in den Bewegungszustand verbessern
 - [x] README aktualisieren
 
 ## Phase 2 – Soldaten-Rendering
@@ -21,6 +18,10 @@
 - [x] Infanterie mit schwererer Silhouette und Schutzdetails darstellen
 - [x] Bogenschütze mit leichterer Silhouette und Köcher darstellen
 - [x] Kavallerie mit Reiter-Silhouette, Schutzdetails und Helmzier darstellen
+- [x] Typ-spezifische Kampfanimationen für Infanterie, Bogenschütze und Kavallerie
+- [x] Infanterie-Nahkampfhieb mit Schwertbewegung
+- [x] Bogenschützen-Animation mit Bogenspannen und Schussbewegung
+- [x] Kavallerie-Angriff mit nach vorne geneigter Reiterhaltung und kräftigem Hieb
 - [ ] Rüstung pro Ausrüstungsstufe sichtbar unterscheiden
 - [ ] Waffenmodelle für unterschiedliche Waffentypen ergänzen
 - [ ] Schilddarstellung und Offhand-Ausrichtung testen
@@ -47,14 +48,13 @@
 - [ ] Alle JSON-Dateien gegen die aktuelle Bedrock-Version testen
 - [ ] Modelle auf Z-Fighting und Clipping prüfen
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
-- [x] Animationen auf Idle → Move → Attack Übergänge technisch verbessern
-- [ ] Animationen auf Idle → Move → Attack im Spiel mit echten Soldaten testen
-- [x] Individuelle Laufanimationen auf unterschiedliche Bewegungsgeschwindigkeiten vorbereiten
-- [ ] Individuelle Laufanimationen im Spiel auf unterschiedlichen Bewegungsgeschwindigkeiten testen
+- [ ] Animationen auf Idle → Move → Attack Übergänge testen
+- [ ] Typ-spezifische Kampfanimationen im Spiel testen
+- [ ] Individuelle Laufanimationen auf unterschiedlichen Bewegungsgeschwindigkeiten testen
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [ ] Pack-Icon ergänzen
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Die drei Soldatentypen sowie die Händlerrollen sollen bereits anhand von Silhouette, Ausrüstung und Bewegung klar unterscheidbar sein.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Rendering-Logik und Gameplay-Daten bleiben im Behavior Pack; das Resource Pack konzentriert sich auf Darstellung, Modelle, Animationen und Attachables. Die drei Soldatentypen sollen anhand von Silhouette, Ausrüstung, Bewegung und einem klar unterschiedlichen Kampfstil erkennbar sein.
