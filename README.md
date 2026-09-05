@@ -1,25 +1,33 @@
 # Siedler Logic – Resource Pack
 
-Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die clientseitige Darstellung der benutzerdefinierten Siedler-Entitäten, insbesondere Soldaten, Kavallerie und Händler.
+Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die clientseitige Darstellung der benutzerdefinierten Siedler-Entitäten, insbesondere Soldaten und Händler.
 
 ## Aktueller Stand
 
 ### Soldaten
 - Drei getrennte Client-Entities: `siedler:infantry`, `siedler:archer` und `siedler:cavalry`.
 - Eigene Geometrie für jeden Soldatentyp.
-- **Alle drei Soldatentypen verwenden einen eigenen, Pillager-orientierten Animation Controller.**
-- Die grundlegende Animation folgt dem Vanilla-Pillager/Humanoid-Aufbau: Zielblick, Bewegung, Arm-Bob und Angriff werden additiv kombiniert.
-- Die Laufbewegung verwendet die Vanilla-Humanoid-Formel mit `variable.tcos0` sowie gegenläufigen Armen und Beinen.
-- Infanterie und Kavallerie verwenden die Vanilla-Humanoid/Pillager-Nahkampfangriffsbewegung.
+- Pillager-orientierte Animation Controller für Bewegung, Zielblick, Arm-Bob und Angriff.
+- Infanterie und Kavallerie verwenden die Vanilla-Humanoid/Pillager-Nahkampfbasis.
 - Bogenschützen verwenden eine Pillager-inspirierte Crossbow-Hold-/Zielhaltung.
 - Attachables für Waffen und Rüstung werden über `enable_attachables` unterstützt.
 
 ### Kavallerie-Mount
-- `siedler:cavalry_horse` besitzt eine eigene Client-Entity und Geometrie.
-- Die Geometrie verwendet jetzt echte Pferde-Modellabmessungen statt extrem kleiner Sub-Block-Koordinaten.
-- Der frühere Root-Scale-Hack wurde entfernt; die Modellkoordinaten sind direkt auf die gewünschte Pferdegröße skaliert.
-- Die sichtbare Größe ist auf das Behavior-Pack-Mount mit einer Collision Box von `1.4 × 1.6` abgestimmt.
-- Das Mount verwendet weiterhin den Vanilla-Pferdetexturpfad `textures/entity/horse/horse_brown`.
+Die Kavallerie verwendet **kein eigenes Pferde-Resource-Pack-Model mehr**. Das Behavior Pack spawnt ein normales `minecraft:horse` und setzt den `siedler:cavalry`-Soldaten über den nativen `/ride`-Befehl auf das Pferd.
+
+Damit kommt die komplette Pferdedarstellung direkt aus Minecraft:
+
+```text
+siedler:cavalry
+      ↓
+   /ride
+      ↓
+minecraft:horse
+      ↓
+Vanilla-Pferdemodell + Vanilla-Pferdetextur
+```
+
+Die früheren Dateien `entity/cavalry_horse.entity.json`, `models/entity/cavalry_horse.geo.json` und `render_controllers/cavalry_horse.render_controllers.json` wurden entfernt. Dadurch gibt es keine eigene Pferdegeometrie mehr, die zu klein dargestellt werden könnte.
 
 ### Händler
 - `siedler:trader` besitzt eine gemeinsame Client-Entity mit sieben visuellen Varianten.
@@ -28,13 +36,13 @@ Resource Pack für das **Minecraft Siedler**-Projekt. Das Paket enthält die cli
 
 ## Animationen
 
-Die drei Soldaten besitzen getrennte Controller, nutzen aber dieselbe Vanilla-Pillager/Humanoid-Bewegungsbasis:
-
 ```text
 Infantry  → controller.animation.soldier.infantry
 Archer    → controller.animation.soldier.archer
 Cavalry   → controller.animation.soldier.cavalry
 ```
+
+Alle drei Soldaten verwenden eine gemeinsame Vanilla-Pillager/Humanoid-Bewegungsbasis.
 
 ## Rendering-Kette
 
@@ -50,18 +58,16 @@ Render Controller
 Pillager/Humanoid Animation Controller
 ```
 
-Für das Mount:
+Das Pferd benötigt keine eigene RP-Definition:
 
 ```text
-siedler:cavalry_horse
+minecraft:horse
         ↓
-entity/cavalry_horse.entity.json
+Vanilla Client Entity
         ↓
-geometry.siedler.cavalry_horse
+Vanilla Horse Model
         ↓
-controller.render.siedler.cavalry_horse
-        ↓
-Vanilla-Pferdetextur
+Vanilla Horse Texture
 ```
 
 ## Verzeichnisstruktur
@@ -82,19 +88,16 @@ Vanilla-Pferdetextur
 ├── entity/
 │   ├── archer.entity.json
 │   ├── cavalry.entity.json
-│   ├── cavalry_horse.entity.json
 │   ├── infantry.entity.json
 │   ├── soldier.entity.json
 │   └── trader.entity.json
 ├── models/
 │   └── entity/
-│       ├── cavalry_horse.geo.json
 │       ├── soldier.geo.json
 │       ├── soldier_equipment.geo.json
 │       ├── soldier_types.geo.json
 │       └── trader_types.geo.json
 ├── render_controllers/
-│   ├── cavalry_horse.render_controllers.json
 │   ├── soldier.render_controllers.json
 │   └── trader.render_controllers.json
 ├── textures/entity/
@@ -113,4 +116,4 @@ Das Resource Pack ist für die Entitäten und Animationen des zugehörigen Behav
 
 ## Ziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte bleiben. Soldaten verwenden für Bewegung und Kampf bewusst einen Vanilla-Pillager/Humanoid-Stil. Die Kavallerie erhält zusätzlich ein korrekt proportioniertes Pferde-Mount.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und performant genug für größere Gefechte bleiben. Soldaten verwenden für Bewegung und Kampf bewusst einen Vanilla-Pillager/Humanoid-Stil. Die Kavallerie verwendet für das Mount bewusst das native Minecraft-Pferd, damit Größe, Animationen und Darstellung vollständig Vanilla-kompatibel bleiben.
