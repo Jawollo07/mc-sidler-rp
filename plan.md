@@ -12,6 +12,7 @@
 - [x] Rendering-Kette der Soldaten auf robusten bekannten Stand zurückgesetzt
 - [x] Typ-spezifische Kampfanimationen sicher direkt an Client-Entities gebunden
 - [x] README aktualisieren
+- [x] Kavallerie-Mount auf korrekt proportionierte Modellgröße gebracht
 
 ## Phase 2 – Soldaten-Rendering
 - [x] Separate Client-Entities für Infanterie, Bogenschütze und Kavallerie
@@ -42,14 +43,24 @@
 - [ ] Treffer-/Schadensanimation ergänzen
 - [ ] Sterbeanimation ergänzen, sofern sie mit dem Behavior Pack sinnvoll synchronisiert werden kann
 
-## Phase 3 – Level und Teams
+## Phase 3 – Kavallerie-Mount
+- [x] Eigene Client-Entity `siedler:cavalry_horse` anbinden
+- [x] Eigene `geometry.siedler.cavalry_horse`-Geometrie anbinden
+- [x] Modellgröße an die Behavior-Pack-Collision-Box anpassen
+- [x] Ungültigen/ungeeigneten Root-Scale-Hack entfernen
+- [ ] Pferdetextur vollständig in das Resource Pack übernehmen
+- [ ] Pferde-Laufanimation ergänzen
+- [ ] Reiterposition und Sattel-/Mount-Offset im Spiel feinjustieren
+- [ ] Kavallerie-Mount mit echten Server-Spawns testen
+
+## Phase 4 – Level und Teams
 - [ ] Level bzw. Rang des Soldaten sichtbar machen
 - [ ] Optionale Rangabzeichen oder Banner ergänzen
 - [ ] Teamfarben/Team-Markierungen vorbereiten
 - [ ] Ausgewählte Soldaten visuell hervorheben
 - [ ] Gruppen-/Formationsdarstellung unterstützen
 
-## Phase 4 – Händler und Wirtschaft
+## Phase 5 – Händler und Wirtschaft
 - [x] Händler visuell von Soldaten stärker abheben
 - [x] Mehrere Händler-Typen mit eigenen Erscheinungsbildern
 - [x] Händler für Warenhandel
@@ -58,7 +69,7 @@
 - [x] Händler-Varianten über persistente Variant-Tags mit dem Behavior Pack verbinden
 - [x] Eigene Geometrien für Lebensmittel-, Baustoff-, Rohstoff-, Werkzeug-, Waffen-, Versorgungs- und Soldatenhändler
 
-## Phase 5 – Qualität
+## Phase 6 – Qualität
 - [ ] Alle JSON-Dateien gegen die aktuelle Bedrock-Version testen
 - [ ] Modelle auf Z-Fighting und Clipping prüfen
 - [ ] Attachables mit allen unterstützten Ausrüstungs-Kombinationen testen
@@ -68,9 +79,10 @@
 - [ ] Vanilla-Pillager-Laufbewegung auf unterschiedlichen Bewegungsgeschwindigkeiten testen
 - [ ] Pillager-Crossbow-Hold-Pose des Bogenschützen mit echter Ziel-/Angriffslogik testen
 - [ ] Händler-Varianten im Spiel mit allen sieben Typen testen
+- [ ] Kavallerie-Mount auf unterschiedlichen Kameradistanzen prüfen
 - [ ] Texturen optimieren und fehlende Texturen ergänzen
 - [x] Pack-Icon ergänzen
 
 ## Designziel
 
-Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Infanterie, Bogenschütze und Kavallerie behalten ihre eigenen Geometrien und Ausrüstung, verwenden für die Animationen aber dieselbe Vanilla-Pillager/Humanoid-Grundlogik. Dadurch sollen alle Soldaten wie konsistente Minecraft-Humanoide laufen, schauen und kämpfen, ohne die zuvor beobachteten künstlichen Fisch-/Gleitbewegungen.
+Der Resource Pack soll einen klaren, wiedererkennbaren Siedler-Look erhalten und gleichzeitig performant genug für größere Gefechte mit vielen Soldaten bleiben. Infanterie, Bogenschütze und Kavallerie behalten ihre eigenen Geometrien und Ausrüstung, verwenden für die Animationen aber dieselbe Vanilla-Pillager/Humanoid-Grundlogik. Das Kavallerie-Mount soll dabei wie ein ausgewachsenes Pferd proportioniert sein und zur physischen Größe des Behavior-Pack-Entities passen.
