@@ -12,7 +12,13 @@
       },
       "bones": [
         {
+          "name": "root",
+          "pivot": [0, 0, 0],
+          "scale": 12
+        },
+        {
           "name": "body",
+          "parent": "root",
           "pivot": [0, 1.4, 0],
           "cubes": [
             { "origin": [-0.7, 0.9, -1.1], "size": [1.4, 1.0, 2.2], "uv": [0, 0] }
